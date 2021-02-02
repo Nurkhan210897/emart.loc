@@ -89,11 +89,65 @@
                                     @endif
                                 </div>
                             @endforeach
+                            @if($edit)
                                 <div class="form-group col-md-12" id='specificationsBlock'>
-                                <label class="control-label">Технические характеристики</label>
-                                <button type="button" class="btn btn-success" onclick='addNewSpecificationBlock()'>+</button>
+                                    <label class="control-label">Технические характеристики</label>
+                                    <button type="button" class="btn btn-success" onclick='addNewSpecificationBlock()'>+</button>
+                                        @foreach($productSpecifications as $i=>$productSpecification)
+                                                <div class="row" data-row="{{$i+1}}">
+                                                    <div class="form-group col-md-3">
+                                                        <label class="control-label">Тип</label>
+                                                        <select class="form-control specificationsList"
+                                                                data-row="{{$i+1}}"
+                                                                name="specifications[{{$i+1}}][id]">
+                                                            @foreach($specifications as $j=>$specification)
+                                                                <option
+                                                                    data-iterator="{{$j}}"
+                                                                    value="{{$specification->id}}"
+                                                                    @if($specification->id===$productSpecification->specification_id)
+                                                                    selected="selected"
+                                                                    @endif
+                                                                    >
+                                                                    {{$specification->name}}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label class="control-label">Значение</label>
+                                                        @if(!is_null($productSpecification->textValue))
+                                                            <input  class="form-control" value="{{$productSpecification->textValue->value}}"
+                                                            data-row="{{$i+1}}"
+                                                            name="specifications[{{$i+1}}][textValue]" />
+                                                        @else
+                                                            <select
+                                                                class="form-control specificationsList"
+                                                                data-row="{{$i+1}}"
+                                                                name="specifications[{{$i+1}}][listValue]">
+                                                            @foreach($productSpecification->lists as $k=>$list)
+                                                                 <option
+                                                                        value="{{$list->id}}"
+                                                                        @if($list->id===$productSpecification->listValue['list_value_id'])
+                                                                        selected="selected"
+                                                                        @endif
+                                                                        >
+                                                                        {{$list->name}}
+                                                                 </option>
+                                                            @endforeach
+                                                            </select>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                        @endforeach
                                 </div>
-                        </div><!-- panel-body -->
+                            @else
+                                <div class="form-group col-md-12" id='specificationsBlock'>
+                                    <label class="control-label">Технические характеристики</label>
+                                    <button type="button" class="btn btn-success" onclick='addNewSpecificationBlock()'>+</button>
+                                </div>
+                            @endif
+                        </div>
+                        <!-- panel-body -->
 
                         <div class="panel-footer">
                             @section('submit-buttons')
@@ -146,50 +200,60 @@
 
         //Own functions
             var specifications=@json($specifications);
-            var specificationsRowNumber=1;
+            @if($edit)
+                var specificationsRowNumber={{count($productSpecifications)+1}};
+            @else
+                var specificationsRowNumber=1;
+            @endif
 
-            function getSelectHtmlFrom(selectArr,className='',rowNumber=''){
-                let select='';
-                let options='';
-
-                if(rowNumber!==''){
-                    var dataRow=`data-row="`+rowNumber+`"`;
-                    var name='';
-                }else{
-                    var dataRow=``;
-                    var name=' name="selectValues[]"';
-                }
-
-                for(let i in selectArr){
-                    if(rowNumber!==''){
-                    var value=i;
-                    }else{
-                    var value=selectArr[i].id;
-                    }
-                    options+='<option value="'+value+'">'
-                                                +selectArr[i].name
-                                            +'</option>';
-                }
-                                select+=`<select
-                                        class="form-control `
-                                        +className+`" `
-                                        +dataRow
-                                        +name
-                                        +`>`
-                                        +options
-                                        +`</select>`;
-                return select;
+            function getSelectForSpecificationValue(list,rowNumber){
+                let select="";
+                let options="";
+                    for(let i in list){
+                        let value=list[i].id;
+                        let name=list[i].name;
+                        options+=`<option value="`+value+`">`
+                                                  +name
+                                                  +`</option>`;
+                     }
+                     select+=`<select
+                                class="form-control specificationsList"
+                                data-row="`+rowNumber+`"
+                                name="specifications[`+rowNumber+`][listValue]">
+                                `+options+`
+                                </select>`
+                     return select;
             }
 
-            function getInputHtmlOfSpecification(specification){
+            function getSpecificationSelect(){
+                let select="";
+                let options="";
+                    for(let i in specifications){
+                        let id=specifications[i].id;
+                        let name=specifications[i].name;
+                        options+=`<option value="`+id+`"
+                                                     data-iterator="`+i+`">`
+                                                  +name
+                                                  +`</option>`;
+                     }
+                     select+=`<select
+                                class="form-control specificationsList"
+                                data-row="`+specificationsRowNumber+`"
+                                name="specifications[`+specificationsRowNumber+`][id]">
+                                `+options+`
+                                </select>`
+                     return select;
+            }
+
+            function getInputHtmlOfSpecification(specification,rowNumber){
                 if(specification.list_values.length!==0){
-                    return getSelectHtmlFrom(specification.list_values);
+                    return getSelectForSpecificationValue(specification.list_values,rowNumber);
                 }
-                return `<input type="text" class="form-control" name="inputValues[]">`;
+                return `<input type="text" class="form-control" name="specifications[`+rowNumber+`][textValue]">`;
             }
             function addNewSpecificationBlock(){
-                let select=getSelectHtmlFrom(specifications,'specificationsList',specificationsRowNumber);
-                let value=getInputHtmlOfSpecification(specifications[0]);
+                let select=getSpecificationSelect();
+                let value=getInputHtmlOfSpecification(specifications[0],specificationsRowNumber);
                 let html=`
                                         <div class="row" data-row="`+specificationsRowNumber+`">
                                             <div class="form-group col-md-3">
@@ -233,7 +297,8 @@
             //Own events
                 $('.col-md-12').on('change','.specificationsList',function(e){
                     let row=$(this).attr('data-row');
-                    let input=getInputHtmlOfSpecification(specifications[this.value],'specificationsList');
+                    let iterator=$('option:selected', this).attr('data-iterator');
+                    let input=getInputHtmlOfSpecification(specifications[iterator],row);
                     $('div[data-row="'+row+'"] .form-group:eq(1) input').replaceWith(input);
                     $('div[data-row="'+row+'"] .form-group:eq(1) select').replaceWith(input);
                 });

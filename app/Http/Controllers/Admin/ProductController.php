@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\ProductSpecification;
 use App\Models\ProductSpecificationListValue;
 use App\Models\ProductSpecificationTextValue;
 use App\Models\Specification;
@@ -305,9 +306,16 @@ class ProductController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        $specifications=Specification::all();
+        $productSpecifications=ProductSpecification::where('product_id',$id)
+                                            ->with('lists')
+                                            ->with('listValue')
+                                            ->with('textValue')
+                                            ->get();
+        $specifications=Specification::with('listValues')->get();
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'
-                                            ,'specifications'));
+                                            ,'specifications'
+                                            ,'productSpecifications'
+                                            ));
     }
 
     // POST BR(E)AD
@@ -336,6 +344,26 @@ class ProductController extends VoyagerBaseController
         // Validate fields with ajax
         $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id)->validate();
         $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
+
+        ProductSpecification::where('product_id',$id)->delete();
+        foreach ($request->specifications as $i=>$specification){
+            if(!empty($specification)){
+                $productSpecification=ProductSpecification::create([
+                    'product_id'=>$id,
+                    'specification_id'=>$specification['id']
+                ]);
+
+                if(isset($specification['listValue'])){
+                    $productSpecification->listValue()->create([
+                        'list_value_id'=>$specification['listValue']
+                    ]);
+                }else{
+                    $productSpecification->textValue()->create([
+                        'value'=>$specification['textValue']
+                    ]);
+                }
+            }
+        }
 
         event(new BreadDataUpdated($dataType, $data));
 
@@ -419,21 +447,22 @@ class ProductController extends VoyagerBaseController
         $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
         $productId=$data->id;
-        foreach ($request->selectValues as $i=>$value){
-            if(!empty($value)){
-                ProductSpecificationListValue::create([
+        foreach ($request->specifications as $i=>$specification){
+            if(!empty($specification)){
+                $productSpecification=ProductSpecification::create([
                     'product_id'=>$productId,
-                    'list_value_id'=>$value
+                    'specification_id'=>$specification['id']
                 ]);
-            }
-        }
 
-        foreach ($request->inputValues as $value) {
-            if(!empty($value)){
-                ProductSpecificationTextValue::create([
-                    'product_id'=>$productId,
-                    'value'=>$value
-                ]);
+                if(isset($specification['listValue'])){
+                    $productSpecification->listValue()->create([
+                        'list_value_id'=>$specification['listValue']
+                    ]);
+                }else{
+                    $productSpecification->textValue()->create([
+                        'value'=>$specification['textValue']
+                    ]);
+                }
             }
         }
 
