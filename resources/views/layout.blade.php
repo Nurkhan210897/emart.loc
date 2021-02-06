@@ -54,14 +54,16 @@
     <!-- HEADER -->
 
      <!-- ATTENTION -->
+     @if(!empty($notification))
         <div class="container">
             <div class="info-header">
                 <div class="info-header-content">
                     <i class="fas fa-exclamation-circle"></i>
-                    <p><span>Внимание: </span>мы работаем в обычном режиме с 9:00 до 19:00 ч. <br> Принимаем все меры безопасности от вируса.</p>
+                    {!!$notification->text!!}
                 </div>
             </div>
         </div>
+      @endif
      <!-- ATTENTION -->
 
     @yield('main')
