@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\SubCategory;
+use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $subCategories=SubCategory::all();
-        return view('subCategories',compact('subCategories'));
+        $subCategory=SubCategory::with('products')->findOrFail($request->id);
+        $title=$subCategory->name;
+        return view('subCategory',compact('subCategory','title'));
     }
 }
