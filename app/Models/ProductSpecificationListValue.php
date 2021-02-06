@@ -9,4 +9,8 @@ class ProductSpecificationListValue extends Model
 {
     protected $guarded=[];
     public $timestamps=false;
+
+    public function list(){
+        return $this->belongsTo('App\Models\ListValue','list_value_id');
+    }
 }
