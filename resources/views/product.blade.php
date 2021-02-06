@@ -12,11 +12,12 @@
                     <p>{{$product->name}}</p>
                </div>
                <div class="category-block-text">
-                    <p>Круглый стол</p>
-                    <span class="small-text">Артикул: ksl001</span>
-                    <span class="small-text">150 см</span>
-                    <div class="price-text">1500 тг.</div>
-                    <span class="small-text">Количество суток:</span>
+                    <span class="small-text">Артикул: {{$product->vendor_code}}</span>
+                    <span class="small-text">Цена: {{number_format($product->price,0,'.',' ')}} тг</span>
+                    <div class="small-text">Гарантия: {{$product->guarantee}}</div>
+                    <span class="small-text">Бранд: {{$product->brand}}</span>
+                    <span class="small-text">В наличии: {{$product->count}}</span>
+                    <span class="small-text">Kaspi: {{$product->kaspi_link}}</span>
                     <button type="button" class="btn btn-basket">В корзину</button>
                </div>
            </div>
