@@ -24,18 +24,13 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li>
-                            <a href="#">Как заказать</a>
-                        </li>
-                        <li>
-                            <a href="#">Как оплатить</a>
-                        </li>
-                        <li>
-                            <a href="#">Доставка</a>
-                        </li>
-                        <li>
-                            <a href="#">Условия аренды</a>
-                        </li>
+                    @foreach($aboutCompanyPages as $pages)
+                        @if($pages->in_header)
+                            <li>
+                                <a href="/page/{{$pages->id}}" target='_blank'>{{$pages->name}}</a>
+                            </li>
+                        @endif
+                     @endforeach
                     </ul>
                     <div class="search">
                         <form action="">
@@ -78,69 +73,16 @@
                         <p>О компании</p>
                     </div>
                     <ul>
-                        <li>
-                            <a href="#">
-                                Каталог
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Как заказать
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Как оплатить
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Доставка
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Условия аренды
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Идея для аренды
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Сотрудничество
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Вопросы и ответы
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Контакты
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Договор оферты
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Договор аренды
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Политика конфиденциальности
-                            </a>
-                        </li>
+                        @foreach($aboutCompanyPages as $pages)
+                             @if($pages->in_footer)
+                                 <li>
+                                     <a href="/page/{{$pages->id}}" target='_blank'>{{$pages->name}}</a>
+                                 </li>
+                             @endif
+                        @endforeach
                     </ul>
                     <div class="footer-end">
-                        <p>2015-2020 © proks.kz — сервис аренды товаров. Все права защищены.</p>
+                        <p>2015-2020 © emart.kz — сервис аренды товаров. Все права защищены.</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
