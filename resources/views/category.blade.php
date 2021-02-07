@@ -8,7 +8,7 @@
                     <p>{{$category->name}}</p>
                 </div>
                 <div class="row">
-                    @if(!empty($category->subCategories))
+                    @if(!$category->subCategories->isEmpty())
                         @foreach($category->subCategories as $subCategory)
                             <div class="col-xl-3 col-6 col-md-4">
                                 <div class="category-main-top">
@@ -22,7 +22,7 @@
                             </div>
                         @endforeach
                     @else
-                            <div class="col-xl-3 col-6 col-md-4">
+                            <div class="col-12">
                                 В данной категории пока нет товаров!
                             </div>
                     @endif
