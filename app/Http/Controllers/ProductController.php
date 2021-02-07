@@ -13,4 +13,11 @@ class ProductController extends Controller
         $title=$product->name;
         return view('product',compact('product','title'));
     }
+
+    public function search(Request $request){
+        $products=Product::where('name','like',"%$request->text%")->get();
+        $title='Результаты поиска';
+        $searched=$request->text;
+        return view('search',compact('products','title','searched'));
+    }
 }

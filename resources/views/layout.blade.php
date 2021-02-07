@@ -16,7 +16,7 @@
     <header>
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg  navbar-dark">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="/images/logo.png" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,9 +34,9 @@
                      @endforeach
                     </ul>
                     <div class="search">
-                        <form action="">
+                        <form action="/products/search" method='GET'>
                             <div class="search-input">
-                                <input type="text" placeholder="Поиск">
+                                <input type="text" placeholder="Поиск" name='text'>
                                 <i class="fas fa-search"></i>
                             </div>
                         </form>

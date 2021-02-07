@@ -227,6 +227,9 @@ nav ul li a:hover {
 }
 /* search-end */
 /* AREND-CATEGORY  */
+.main-gategory{
+    min-height: 50.7vh !important;
+}
 
 .main-gategory .main-gategory-content {
     padding-bottom: 60px;
