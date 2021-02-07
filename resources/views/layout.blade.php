@@ -39,10 +39,8 @@
                                 <input type="text" placeholder="Поиск">
                                 <i class="fas fa-search"></i>
                             </div>
-                            <input type="submit" class="btn btn-head">
                         </form>
                     </div>
-                    <!-- <a href="#" type="button" class="btn btn-head ml-4">Войти</a> -->
                 </div>
             </nav>
         </div>
@@ -64,7 +62,42 @@
 
     @yield('main')
 
+    <div class="back-call">
+        <div class="back-call-content">
+            <span class="tooltip-top">Хотите,перезвоним Вам за 30 сек</span>
+            <button type="button" class="btn btn-toolip" data-toggle="modal" data-target="#exampleModal">
+                <span class="call-btn">Кнопка связи</span>
+                <span class="call-icon"><i class="fas fa-phone"></i></span>
+                <span class="call-line"></span>
+              </button>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade back_call_modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                <div class="modal-body">
+                    <h2>Хотите, перезвоним Вам за <b>30</b> секунд?</h3>
 
+                        <form action="">
+                            <input type="text" placeholder="Ваш номер">
+                            <input type="submit" value="Перезвоните">
+                            <span class="countdown-timer"><span>00:</span>29<span>:99</span></span>
+                        </form>
+                        <div>
+                            <span class="small-text">Например: 067 000 00 00</span>
+                        </div>
+                        <div class="mt-5">
+                            <span class="small-text">Свободных операторов на линии: 3</span>
+                            <span class="small-text">Заказов звонков сегодня: 10+</span>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- FOOTER -->
     <footer>
         <div class="container">
