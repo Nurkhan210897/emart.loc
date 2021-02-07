@@ -4,10 +4,13 @@
      <div class="row">
           <div class="col-xl-6">
                <div class="product_img">
-                    <img src="{{Voyager::image($product->cover)}}" alt="">
+                    <img src="{{Voyager::image($product->cover)}}" alt="" class="drift-demo-trigger" data-zoom="{{Voyager::image($product->cover)}}" >
                </div>
+
           </div>
           <div class="col-xl-6">
+           <div class="detail">
+                         </div>
                <div class="title">
                     <p>{{$product->name}}</p>
                </div>
@@ -17,14 +20,23 @@
                     <div class="small-text">Гарантия: {{$product->guarantee}}</div>
                     <span class="small-text">Бранд: {{$product->brand}}</span>
                     <span class="small-text">В наличии: {{$product->count}}</span>
-                    <span class="small-text">Kaspi: {{$product->kaspi_link}}</span>
-                    <button type="button" class="btn btn-basket">В корзину</button>
+                     <a href="#" class="btn_kaspi"><img src="/images/kaspi_logo.webp"><div class="price_wrapper"> Купить в кредит <div class="price_info"><span class="large_text">4 460  </span><span class="small_text"> x 12 мес</span></div></div><a>
+                    <a href="#" type="btn" class="d-block mt-4"><img src="/images/wp_btn.svg"></a>
+                    <div class="add_cart">
+                     <div class="input-group spinner pull-left">
+                         <input type="number" class="form-control" value="1" id="item-count" min="1">
+                     </div>
+                     <button type="button" class="btn btn-green d-block"><i class="fas fa-shopping-cart"></i>Добавить в корзину</button></div>
                </div>
            </div>
      </div>
-     <div class="row">
+     <div class="row mt-3">
         <div class="col-12">
-            <h3>ХАРАКТЕРИСТИКИ</h3>
+            <h4>ОПИСАНИЕ</h4>
+            {!! $product->description !!}
+        </div>
+        <div class="col-12">
+            <h4>ХАРАКТЕРИСТИКИ</h4>
             <table class="table table-striped">
               <thead>
                 <tr>

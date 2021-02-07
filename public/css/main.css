@@ -796,7 +796,79 @@ footer li a:hover {
 .product_img img {
     max-width: 70%;
     width: 100%;
+    cursor: pointer;
 }
+.btn_kaspi{
+    display: flex;
+    width: 160px;
+    height: 44px;
+    background: #f14635;
+    background: linear-gradient(#f76051 2%,#fb806d 5%,#f76051 5%,#f14635);
+    color: #fff;
+    border-bottom: 2px solid #e04131;
+    font-size: 14px;
+    text-decoration: none!important;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+}
+.btn_kaspi:hover{
+    color: #fff;
+}
+.btn_kaspi img {
+    margin-right: 5px;
+}
+.price_info{
+    display: flex;
+    align-items: center;
+}
+.price_wrapper{
+    font-size: 12px;
+}
+.price_info span{
+    margin: 0;
+    font-size: 14px;
+}
+.price_info .large_text{
+      font-size: 14px;
+  }
+.price_info .small_text{
+    font-size: 12px;
+}
+.btn-green{
+    background-color: #25D366;
+    border-color: #25D366;
+    color: #fff;
+}
+.btn-green i{
+    margin-right: 10px;
+}
+.input-group{
+    width: fit-content;
+    background: #f7f7f7;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #dadada;
+
+}
+.add_cart{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.add_cart .btn{
+    margin-left: 20px;
+}
+.input-group input{
+    width: 55px !important;
+    flex: none !important;
+    background: #f7f7f7;
+    border: none;
+    border-radius: 5px ;
+    height: 100%;
+    padding: 3px 10px;
+}  box-shadow: none;
+
 /* MEDIA-MOBILE */
 
 @media only screen and (max-width: 576px) {
