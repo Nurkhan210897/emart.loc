@@ -71,6 +71,28 @@ $(document).ready(function() {
         });
     }
 
+    $('#orderHandleBtn').on('click',function (e) {
+        e.preventDefault();
+        let form=$('#basketForm').serializeArray();
+        $.ajax({
+            url:'/order/handle',
+            method:'POST',
+            data:form,
+            success:function (res) {
+                $('#orderId').html(res.orderId);
+                $('#orderModal').modal('show');
+            },
+            error:function (e) {
+                console.log(e);
+            }
+        });
+    });
+
+    $('#orderModal').on('hidden.bs.modal', function (e) {
+        $('#basketTotalCount').html(0);
+        window.location.href='/';
+    });
+
     function sweetAlert(status,msg) {
         Swal.fire({
             position: 'top-end',

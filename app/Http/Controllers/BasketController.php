@@ -11,7 +11,7 @@ class BasketController extends Controller
     public function index(BasketService $basketService)
     {
         $basket = Session::get('basket');
-        $basketTotalPrice=Session::get('basketTotalPrice');
+        $basketTotalPrice=Session::get('basketTotalPriceStr');
         $title = 'Корзина';
         return view('basket', compact('basket', 'basketTotalPrice','title'));
     }
@@ -21,7 +21,7 @@ class BasketController extends Controller
         $basketService->add($request->productId, $request->count);
         return response()->json([
             'totalCount' => Session::get('basketTotalCount'),
-            'totalPrice' => Session::get('basketTotalPrice'),
+            'totalPrice' => Session::get('basketTotalPriceStr'),
             'product' => Session::get("basket.$request->productId")
         ]);
     }
@@ -31,7 +31,7 @@ class BasketController extends Controller
         $basketService->delete($request->productId);
         return response()->json([
             'totalCount' => Session::get('basketTotalCount'),
-            'totalPrice' => Session::get('basketTotalPrice')
+            'totalPrice' => Session::get('basketTotalPriceStr')
             ]);
     }
 }

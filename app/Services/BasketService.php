@@ -13,9 +13,9 @@ class BasketService
 {
 
     /**
-     * @param int $productId
-     * @param int $count
-     */
+ * @param int $productId
+ * @param int $count
+ */
     public function add(int $id, int $count): void
     {
         if(Session::has("basket.$id")){
@@ -54,9 +54,20 @@ class BasketService
             $totalPrice+=$product['count']*$product['price'];
         }
         Session::put('basketTotalCount', $totalCount);
-        Session::put('basketTotalPrice', number_format($totalPrice,0,'.',' '));
+        Session::put('basketTotalPrice', $totalPrice);
+        Session::put('basketTotalPriceStr', number_format($totalPrice,0,'.',' '));
     }
 
+    /**
+     *
+     */
+    public function flush():void{
+        Session::forget('basket');
+        Session::forget('basketTotalCount');
+        Session::forget('basketTotalPrice');
+        Session::forget('basketTotalPriceStr');
+        Session::save();
+    }
 }
 
 ?>
