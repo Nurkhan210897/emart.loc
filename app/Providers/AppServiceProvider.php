@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\BasketService;
+use App\Services\OrderService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\ViewComposers\LayoutComposer;
@@ -18,6 +20,14 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->isLocal()) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
         }
+
+        $this->app->singleton(BasketService::class, function ($app) {
+            return new BasketService();
+        });
+
+        $this->app->singleton(OrderService::class, function ($app) {
+            return new OrderService();
+        });
     }
 
     /**

@@ -24,9 +24,18 @@
                     <a href="#" type="btn" class="d-block mt-4"><img src="/images/wp_btn.svg"></a>
                     <div class="add_cart">
                      <div class="input-group spinner pull-left">
-                         <input type="number" class="form-control" value="1" id="item-count" min="1">
+                         <input type="number"
+                            class="form-control"
+                            value="{{session()->has('basket.'.$product->id)?session('basket.'.$product->id)['count']:1 }}"
+                            id="item-count"
+                            min="1"
+                            data-id='{{$product->id}}'>
                      </div>
-                     <button type="button" class="btn btn-green d-block"><i class="fas fa-shopping-cart"></i>Добавить в корзину</button></div>
+                         <button type="button" class="btn btn-green d-block addBasketBtn" data-id='{{$product->id}}'>
+                            <i class="fas fa-shopping-cart"></i>
+                            Добавить в корзину
+                         </button>
+                     </div>
                </div>
            </div>
      </div>

@@ -18,6 +18,11 @@ Route::get('/sub-category/{id}', 'SubCategoryController@index');
 Route::get('/product/{id}','ProductController@index');
 Route::get('/products/search','ProductController@search');
 Route::get('/page/{id}','PageController@index');
+Route::get('/basket','BasketController@index');
+Route::post('/basket/add','BasketController@add');
+Route::delete('/basket/delete','BasketController@delete');
+
+Route::post('/order/handle','OrderController@handle');
 
 Route::get('/', 'IndexController@index');
 
