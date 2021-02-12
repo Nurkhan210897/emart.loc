@@ -21,7 +21,10 @@ class BasketService
         if(Session::has("basket.$id")){
             $product=Session::get("basket.$id");
         }else{
-            $product=Product::select('id','name','cover','price')->firstOrFail($id)->toArray();
+            $product = Product::select('id', 'name', 'cover', 'price')
+                ->where('id', $id)
+                ->firstOrFail()
+                ->toArray();
         }
 
         $product['count']=$count;
