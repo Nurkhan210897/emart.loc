@@ -28,6 +28,7 @@ class OrderService {
             'address'=>$data['address'],
             'comment_to_delivery'=>$data['commentToDelivery'],
             'total_sum'=>(int)Session::get('basketTotalPrice'),
+            'status_id'=>1,
             'created_at'=>date("Y-m-d H:i:s")
         ]);
         return $order->id;
