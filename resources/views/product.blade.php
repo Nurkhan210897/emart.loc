@@ -6,7 +6,6 @@
                <div class="product_img">
                     <img src="{{Voyager::image($product->cover)}}" alt="" class="drift-demo-trigger" data-zoom="{{Voyager::image($product->cover)}}" >
                </div>
-
           </div>
           <div class="col-xl-6">
            <div class="detail">
@@ -39,6 +38,14 @@
                </div>
            </div>
      </div>
+
+   //надо добавить к слайдеру и чтобы при клике на слайдер открывалось как в kolesa.kz модалка с кнопками вправо и налево
+     <div style="margin-bottom:15px">
+                         @foreach(json_decode($product->images) as $image)
+                             <img src="{{Voyager::image($image)}}" style='width:50px;height:50px' />
+                         @endforeach
+     </div>
+
      <div class="row mt-3">
         <div class="col-12">
             <h4>ОПИСАНИЕ</h4>
