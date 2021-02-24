@@ -17,14 +17,17 @@
        <li>
         <label for="">Имя<span>*</span></label>
         <input type="text" placeholder="Введите ваше имя" name='fName' required>
+        <span id='fName' style='display:none;'></span>
        </li>
        <li>
         <label for="">Фамилия<span>*</span></label>
         <input type="text" placeholder="Введите вашу фамилию" name='sName' required>
+        <span id='sName' style='display:none;'></span>
        </li>
        <li>
         <label for="">Мобильный телефон<span>*</span></label>
         <input type="text" placeholder="" name='mobile' required>
+        <span id='mobile' style='display:none;'></span>
        </li>
       </ul>
      </div>
@@ -38,6 +41,7 @@
         <li>
          <label for="">Адрес доставки<span>*</span></label>
          <textarea cols="40" rows="2" name='address' required></textarea>
+         <span id='address' style='display:none;'></span>
         </li>
         <li>
          <label for="">Комментарий к доставке</label>

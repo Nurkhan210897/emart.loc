@@ -78,12 +78,20 @@ $(document).ready(function() {
             url:'/order/handle',
             method:'POST',
             data:form,
+            beforeSend(){
+                $('#basketForm span').html('');
+                $('#basketForm span').hide();
+            },
             success:function (res) {
                 $('#orderId').html(res.orderId);
                 $('#orderModal').modal('show');
             },
             error:function (e) {
-                console.log(e);
+                let errors=e.responseJSON.errors;
+                for (let id in errors){
+                    $('#basketForm span#'+id).html(errors[id][0]);
+                    $('#basketForm span#'+id).show();
+                }
             }
         });
     });
