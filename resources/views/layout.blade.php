@@ -114,7 +114,7 @@
                         @foreach($aboutCompanyPages as $pages)
                              @if($pages->in_footer)
                                  <li>
-                                     <a href="/page/{{$pages->id}}" target='_blank'>{{$pages->name}}</a>
+                                     <a href="/page/{{$pages->id}}">{{$pages->name}}</a>
                                  </li>
                              @endif
                         @endforeach
