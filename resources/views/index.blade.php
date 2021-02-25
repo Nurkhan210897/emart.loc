@@ -5,9 +5,6 @@
     <div class="main-gategory mt-4">
         <div class="container">
             <div class="main-gategory-content">
-                <div class="title">
-                    <p>Категории аренды</p>
-                </div>
                 <div class="row">
                     @foreach($categories as $category)
                     <div class="col-xl-3 col-6 col-md-4">
