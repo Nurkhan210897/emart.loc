@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/category/{id}', 'CategoryController@index');
-Route::get('/sub-category/{id}', 'SubCategoryController@index');
+
 Route::get('/product/{id}','ProductController@index');
 Route::get('/products/search','ProductController@search');
 Route::get('/page/{id}','PageController@index');
@@ -29,3 +28,6 @@ Route::get('/', 'IndexController@index');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+//
+Route::get('/{slug}', 'CategoryController@index');

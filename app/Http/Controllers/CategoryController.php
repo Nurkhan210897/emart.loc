@@ -8,7 +8,10 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $category=Category::with(['subCategories'])->findOrFail($request->id);
+        $category=Category::with(['subCategories','products'])
+            ->where('slug',$request->slug)
+            ->firstOrFail();
+        $title=$category->name;
         return view('category',compact('category','title'));
     }
 }

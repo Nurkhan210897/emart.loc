@@ -36,4 +36,11 @@ class Category extends Model
     public function subCategories(){
         return $this->hasMany('App\Models\Category');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products(){
+        return $this->hasMany('App\Models\Product');
+    }
 }

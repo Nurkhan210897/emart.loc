@@ -12,13 +12,26 @@
                         @foreach($category->subCategories as $subCategory)
                             <div class="col-xl-3 col-6 col-md-4">
                                 <div class="category-main-top">
-                                    <a href="/sub-category/{{$subCategory->id}}">
+                                    <a href="/{{$subCategory->slug}}">
                                         <div class="gategory-block">
                                             <img src="{{Voyager::image($subCategory->cover)}}" alt="">
                                         </div>
                                         <p>{{$subCategory->name}}</p>
                                     </a>
                                 </div>
+                            </div>
+                        @endforeach
+                    @elseif(!$category->products->isEmpty())
+                        @foreach($category->products as $product)
+                            <div class="col-xl-3 col-6 col-md-4">
+                                 <div class="category-main-top">
+                                      <a href="/{{$product->slug}}">
+                                         <div class="gategory-block">
+                                              <img src="{{Voyager::image($product->cover)}}" alt="">
+                                         </div>
+                                        <p>{{$product->name}}</p>
+                                      </a>
+                                 </div>
                             </div>
                         @endforeach
                     @else
