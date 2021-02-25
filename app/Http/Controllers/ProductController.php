@@ -9,7 +9,9 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $product=Product::withSpecifications()->findOrFail($request->id);
+        $product = Product::withSpecifications()
+            ->where('slug', $request->productSlug)
+            ->firstOrFail();
         $title=$product->name;
         return view('product',compact('product','title'));
     }

@@ -25,7 +25,7 @@
                         @foreach($category->products as $product)
                             <div class="col-xl-3 col-6 col-md-4">
                                  <div class="category-main-top">
-                                      <a href="/{{$product->slug}}">
+                                      <a href="/{{$category->slug}}/{{$product->slug}}">
                                          <div class="gategory-block">
                                               <img src="{{Voyager::image($product->cover)}}" alt="">
                                          </div>

@@ -31,3 +31,4 @@ Route::group(['prefix' => 'admin'], function () {
 
 //
 Route::get('/{slug}', 'CategoryController@index');
+Route::get('/{categorySlug}/{productSlug}','ProductController@index');
