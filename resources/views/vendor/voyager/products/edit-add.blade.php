@@ -91,6 +91,9 @@
                             @endforeach
                             @if($edit)
                                 <div class="form-group col-md-12" id='specificationsBlock'>
+                                    <div class="alert alert-danger" role="alert" id='specificationErrorBlock' hidden>
+                                          Технические характеристики товара не заполнены!
+                                    </div>
                                     <label class="control-label">Технические характеристики</label>
                                     <button type="button" class="btn btn-success" onclick='addNewSpecificationBlock()'>+</button>
                                         @foreach($productSpecifications as $i=>$productSpecification)
@@ -137,11 +140,17 @@
                                                             </select>
                                                         @endif
                                                     </div>
+                                                    <div class="form-group col-md-3">
+                                                        <button class="deleteSpecificationRowBtn btn btn-danger">-</button>
+                                                    </div>
                                                 </div>
                                         @endforeach
                                 </div>
                             @else
                                 <div class="form-group col-md-12" id='specificationsBlock'>
+                                    <div class="alert alert-danger" role="alert" id='specificationErrorBlock' hidden>
+                                        Технические характеристики товара не заполнены!
+                                    </div>
                                     <label class="control-label">Технические характеристики</label>
                                     <button type="button" class="btn btn-success" onclick='addNewSpecificationBlock()'>+</button>
                                 </div>
@@ -264,6 +273,9 @@
                                                 <label class="control-label">Значение</label>
                                                 `+value+`
                                             </div>
+                                            <div class="form-group col-md-3">
+                                                <button class="deleteSpecificationRowBtn btn btn-danger">-</button>
+                                            </div>
                                         </div>
                                         `;
                 $('#specificationsBlock').append(html);
@@ -301,6 +313,37 @@
                     let input=getInputHtmlOfSpecification(specifications[iterator],row);
                     $('div[data-row="'+row+'"] .form-group:eq(1) input').replaceWith(input);
                     $('div[data-row="'+row+'"] .form-group:eq(1) select').replaceWith(input);
+                });
+
+                $('#specificationsBlock').on('click','.deleteSpecificationRowBtn',function(e){
+                    e.preventDefault();
+                    $(this).closest('.row').remove();
+                });
+
+                $('form').submit(function(e){
+                    e.preventDefault();
+                    var formData = new FormData($(this)[0]);
+                    $.ajax({
+                        @if(strpos(url()->current(),'create')!==false)
+                            url:'/admin/products',
+                        @else
+                            url:'/admin/products/{{$productId}}',
+                        @endif
+                        method:'POST',
+                        data:formData,
+                        contentType: false,
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        beforeSend:function(){
+                            $('#specificationErrorBlock').hide();
+                        },
+                        success:function(res){
+                            window.location.href='/admin/products';
+                        },
+                        error:function(){
+                            $('#specificationErrorBlock').show();
+                        }
+                    });
                 });
             //OwnEvents
 
@@ -353,4 +396,9 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
+    <style>
+        .deleteSpecificationRowBtn{
+            margin-top:27px !important;
+        }
+    </style>
 @stop

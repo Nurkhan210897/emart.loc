@@ -311,16 +311,23 @@ class ProductController extends VoyagerBaseController
                                             ->with('listValue')
                                             ->with('textValue')
                                             ->get();
+
         $specifications=Specification::with('listValues')->get();
+
+        $productId = $id;
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'
                                             ,'specifications'
                                             ,'productSpecifications'
+                                            , 'productId'
                                             ));
     }
 
     // POST BR(E)AD
     public function update(Request $request, $id)
     {
+        if (empty($request->specifications)) {
+            return response()->json([], 422);
+        }
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -436,6 +443,9 @@ class ProductController extends VoyagerBaseController
      */
     public function store(Request $request)
     {
+        if (empty($request->specifications)) {
+            return response()->json([], 422);
+        }
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
