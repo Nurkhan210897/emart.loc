@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeliveryType;
+use App\Models\PaymentType;
 use Illuminate\Http\Request;
 use App\Services\BasketService;
 use Session;
@@ -12,8 +14,16 @@ class BasketController extends Controller
     {
         $basket = Session::get('basket');
         $basketTotalPrice=Session::get('basketTotalPriceStr');
+        $deliveryTypes = DeliveryType::all();
+        $paymentTypes = PaymentType::all();
         $title = 'Корзина';
-        return view('basket', compact('basket', 'basketTotalPrice','title'));
+        return view('basket', compact('basket'
+                , 'basketTotalPrice'
+                , 'title'
+                , 'deliveryTypes'
+                , 'paymentTypes'
+            )
+        );
     }
 
     public function add(Request $request, BasketService $basketService)
@@ -32,6 +42,6 @@ class BasketController extends Controller
         return response()->json([
             'totalCount' => Session::get('basketTotalCount'),
             'totalPrice' => Session::get('basketTotalPriceStr')
-            ]);
+        ]);
     }
 }

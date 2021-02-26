@@ -12,7 +12,10 @@ class OrderCreateRequest extends FormRequest
             'fName'=>'required',
             'sName'=>'required',
             'mobile'=>'required',
-            'address'=>'required'
+            'address' => 'required',
+            'commentToDelivery'=>'sometimes',
+            'deliveryType' => 'required|integer',
+            'paymentType' => 'required|integer'
 
         ];
     }
@@ -23,7 +26,11 @@ class OrderCreateRequest extends FormRequest
           'fName.required'=>'Введите имя!',
           'sName.required'=>'Введите фамилию!',
           'mobile.required'=>'Введите номер телефона!',
-          'address.required'=>'Введите адресс!'
+            'address.required' => 'Введите адресс!',
+            'deliveryType.required' => 'Выберите "тип доставки!"',
+            'deliveryType.integer' => 'Не верный формат "тип доставки"',
+            'paymentType.required' => 'Выберите "тип оплаты"!',
+            'paymentType.integer' => 'Не верный формат "тип оплаты"!',
         ];
     }
 

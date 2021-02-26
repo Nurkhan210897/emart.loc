@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function handle(OrderCreateRequest $request,OrderService $orderService,BasketService $basketService)
     {
-        $orderId=$orderService->store($request->all());
+        $orderId=$orderService->store($request->validated());
         $basketService->flush();
         return response()->json(['orderId'=>$orderId]);
     }
