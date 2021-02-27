@@ -8,21 +8,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drift-zoom/1.3.1/drift-basic.min.css" integrity="sha512-us5Qz8z1MIzLykX5KtvnVAcomNfU28BC7wdaZS2QICFxgJo4QoLj6OXq/FeAl+qb+qyqsxilHoiMBgprdnKtlA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/main.css">
     <title>{{$title}}</title>
 </head>
 
 <body>
     <!-- HEADER -->
-    <header>
+    <header class="bg_layout">
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg  navbar-dark">
+            <nav class="navbar navbar-expand-lg  navbar-dark ">
                 <a class="navbar-brand" href="/">
                     <img src="/images/logo.png" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="burger">
+                    <span class="burger-lines"></span>
+                </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
@@ -42,13 +45,37 @@
                             </div>
                         </form>
                     </div>
-                    <a href="/basket" class="basket_icon">
+                    <a href="/basket" class="basket_icon desktop">
                        <span id='basketTotalCount'>{{$basketTotalCount}}</span>
                     <i class="fas fa-shopping-basket"></i></a>
                 </div>
             </nav>
         </div>
+        <a href="/basket" class="basket_icon mobile_basket">
+            <span id='basketTotalCount'>{{$basketTotalCount}}</span>
+         <i class="fas fa-shopping-basket"></i></a>
+         <div class="mobile-menu">
+            <div class="search">
+                <form action="/products/search" method='GET'>
+                    <div class="search-input">
+                        <input type="text" placeholder="Поиск" name='text'>
+                        <i class="fas fa-search"></i>
+                    </div>
+                </form>
+            </div>
+            <ul>
+                @foreach($aboutCompanyPages as $pages)
+                        @if($pages->in_header)
+                            <li>
+                                <a href="/page/{{$pages->id}}" target='_blank'>{{$pages->name}}</a>
+                            </li>
+                        @endif
+                     @endforeach
+            </ul>
+        </div>
     </header>
+
+
     <!-- HEADER -->
 
      <!-- ATTENTION -->
@@ -103,7 +130,7 @@
         </div>
     </div>
     <!-- FOOTER -->
-    <footer>
+    <footer class="bg_layout">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-md-6">
@@ -168,6 +195,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/drift-zoom/1.3.1/Drift.min.js" integrity="sha512-Pd9pNKoNtEB70QRXTvNWLO5kqcL9zK88R4SIvThaMcQRC3g8ilKFNQawEr+PSyMtf/JTjV7pbFOFnkVdr0zKvw==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
     <script src="/js/main.js"></script>
 </body>
 

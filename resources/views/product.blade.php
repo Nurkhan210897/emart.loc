@@ -1,12 +1,25 @@
 @extends('layout')
 @section('main')
-<div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5 product_wrapper">
      <div class="row">
-          <div class="col-xl-6">
-               <div class="product_img">
-                    <img src="{{Voyager::image($product->cover)}}" alt="" class="drift-demo-trigger" data-zoom="{{Voyager::image($product->cover)}}" >
-               </div>
-          </div>
+        <div class="col-xl-6 h-100">
+            <div class="product_img slider_for">
+                @foreach(json_decode($product->images) as $image)
+                    <div>
+                        <a href="{{Voyager::image($image)}}" data-fancybox="gallery">
+                            <img src="{{Voyager::image($image)}}"  />
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <div class="slider_nav">
+             @foreach(json_decode($product->images) as $image)
+                 <div>
+                    <img src="{{Voyager::image($image)}}"/>
+                 </div>
+             @endforeach
+            </div>
+       </div>
           <div class="col-xl-6">
            <div class="detail">
                          </div>
@@ -14,13 +27,13 @@
                     <p>{{$product->name}}</p>
                </div>
                <div class="category-block-text">
-                    <span class="small-text">Артикул: {{$product->vendor_code}}</span>
-                    <span class="small-text">Цена: {{number_format($product->price,0,'.',' ')}} тг</span>
-                    <div class="small-text">Гарантия: {{$product->guarantee}}</div>
-                    <span class="small-text">Бранд: {{$product->brand}}</span>
-                    <span class="small-text">В наличии: {{$product->count}}</span>
+                    <span class="category_t">Артикул: {{$product->vendor_code}}</span>
+                    <span class="category_t">Цена: {{number_format($product->price,0,'.',' ')}} тг</span>
+                    <div class="category_t">Гарантия: {{$product->guarantee}}</div>
+                    <span class="category_t">Бранд: {{$product->brand}}</span>
+                    <span class="category_t">В наличии: {{$product->count}}</span>
                      <a href="#" class="btn_kaspi"><img src="/images/kaspi_logo.webp"><div class="price_wrapper"> Купить в кредит <div class="price_info"><span class="large_text">4 460  </span><span class="small_text"> x 12 мес</span></div></div><a>
-                    <a href="#" type="btn" class="d-block mt-4"><img src="/images/wp_btn.svg"></a>
+                    <a href="#" type="btn" class="d-block mt-4 wp_btn"><img src="/images/wp_btn.svg"></a>
                     <div class="add_cart">
                      <div class="input-group spinner pull-left">
                          <input type="number"
@@ -39,12 +52,7 @@
            </div>
      </div>
 
-   //надо добавить к слайдеру и чтобы при клике на слайдер открывалось как в kolesa.kz модалка с кнопками вправо и налево
-     <div style="margin-bottom:15px">
-                         @foreach(json_decode($product->images) as $image)
-                             <img src="{{Voyager::image($image)}}" style='width:50px;height:50px' />
-                         @endforeach
-     </div>
+
 
      <div class="row mt-3">
         <div class="col-12">
