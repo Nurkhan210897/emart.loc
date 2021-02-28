@@ -177,6 +177,26 @@ $(document).ready(function() {
         window.location.href = '/';
     });
 
+    $('#callForm [name="mobile"]').mask("+7(999) 999-99-99");
+
+    $('#callForm').submit(function(e) {
+        e.preventDefault();
+        var data = $('#callForm').serializeArray();
+        $.ajax({
+            url:'/calls',
+            method:'POST',
+            data:data,
+            success:function (res) {
+                $('#callModal').modal('hide');
+                sweetAlert('success','Ваша заявка успешно отправлена в обработку!');
+            },
+            error:function (err) {
+                console.log(err);
+            }
+        });
+
+    });
+
     function sweetAlert(status, msg) {
         Swal.fire({
             position: 'top-end',

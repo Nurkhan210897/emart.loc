@@ -95,8 +95,8 @@
 
     <div class="back-call">
         <div class="back-call-content">
-            <span class="tooltip-top">Хотите,перезвоним Вам за 30 сек</span>
-            <button type="button" class="btn btn-toolip" data-toggle="modal" data-target="#exampleModal">
+            <span class="tooltip-top">Оставьте заявку на звонок</span>
+            <button type="button" class="btn btn-toolip" data-toggle="modal" data-target="#callModal">
                 <span class="call-btn">Кнопка связи</span>
                 <span class="call-icon"><i class="fas fa-phone"></i></span>
                 <span class="call-line"></span>
@@ -104,27 +104,19 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade back_call_modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade back_call_modal" id="callModal" tabindex="-1" role="dialog" aria-labelledby="callModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 <div class="modal-body">
-                    <h2>Хотите, перезвоним Вам за <b>30</b> секунд?</h3>
-
-                        <form action="">
-                            <input type="text" placeholder="Ваш номер">
-                            <input type="submit" value="Перезвоните">
-                            <span class="countdown-timer"><span>00:</span>29<span>:99</span></span>
+                    <h2>Оставьте заявку и мы свяжемся с вами в ближайщее время!</h3>
+                        <form action="" id='callForm'>
+                            @csrf
+                            <input type="text" placeholder="Ваш номер" name='mobile'>
+                            <input type="submit" value="Отправить">
                         </form>
-                        <div>
-                            <span class="small-text">Например: 067 000 00 00</span>
-                        </div>
-                        <div class="mt-5">
-                            <span class="small-text">Свободных операторов на линии: 3</span>
-                            <span class="small-text">Заказов звонков сегодня: 10+</span>
-                        </div>
                 </div>
             </div>
         </div>
@@ -198,6 +190,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous"></script>
     <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
 </body>
 
 </html>

@@ -22,6 +22,7 @@ Route::post('/basket/add','BasketController@add');
 Route::delete('/basket/delete','BasketController@delete');
 
 Route::post('/order/handle','OrderController@handle');
+Route::post('calls', 'CallController@handle');
 
 Route::get('/', 'IndexController@index');
 
