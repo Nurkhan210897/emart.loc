@@ -152,7 +152,7 @@ header {
 }
 
 .bg_layout {
-    background-color: rgb(5 153 7) !important;
+    background-color: rgb(87 87 87) !important;
     position: relative;
 }
 
@@ -181,7 +181,7 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: none;
-    color: #ffc20f;
+    color: #b0b0b0;
 }
 
 
@@ -308,7 +308,7 @@ nav ul li a:hover {
 }
 
 .main-gategory .main-gategory-content p:hover {
-    color: #ffc20f;
+    color: #b0b0b0;
 }
 
 .category-main {
@@ -579,9 +579,11 @@ footer li a:hover {
     margin: 20px 0;
 }
 
-[name=deliveryType],[name=paymentType]{
+[name=deliveryType],
+[name=paymentType] {
     width: 60% !important;
 }
+
 @keyframes callLine {
     from {
         transform: scale(1);
@@ -955,8 +957,8 @@ footer li a:hover {
     margin-left: 20px;
 }
 
-.input-group input {
-    width: 55px !important;
+.add_cart .input-group input {
+    width: 55px;
     flex: none !important;
     background: #f7f7f7;
     border: none;
@@ -986,10 +988,12 @@ footer li a:hover {
     right: 0 !important;
 }
 
-.spinner-border{
+.spinner-border {
     width: 8rem;
     height: 8rem;
+    margin-top: -140px !important;
 }
+
 @media only screen and (max-width: 576px) {
     .mobile-menu {
         display: flex !important;
@@ -1016,6 +1020,8 @@ footer li a:hover {
     }
     .btn_kaspi {
         margin: 20px auto;
+        width: 100%;
+        max-width: 232px;
     }
     .desktop {
         display: none;
@@ -1101,17 +1107,25 @@ footer li a:hover {
 
 @media only screen and (max-width: 768px) {
     .add_cart .btn {
+        width: 100%;
+        max-width: 160px;
         height: 44px;
         margin-left: 0 !important;
+        padding: 0;
+        font-size: 13px;
     }
     .wp_btn img {
         height: 44px;
     }
     .add_cart {
-        flex-direction: column;
+        justify-content: center;
     }
     .add_cart .input-group {
-        margin-bottom: 20px !important;
+        height: 44px;
+        margin-right: 10px;
+    }
+    .add_cart .input-group input {
+        text-align: center;
     }
     .fancybox-navigation .fancybox-button--arrow_left {
         left: 0% !important;
@@ -1507,7 +1521,6 @@ textarea {
     justify-content: center;
     align-items: center;
     z-index: 99;
-    padding-top: 50px;
     background: #fff;
     opacity: .8;
 }
@@ -1590,7 +1603,7 @@ textarea {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #319d41;
+    background-color: rgb(87 87 87) !important;
     z-index: 100;
     align-items: center;
     justify-content: center;
@@ -1661,4 +1674,8 @@ textarea {
 .mobile-menu .search .search-input {
     width: 90%;
     margin: 0 auto;
+}
+
+.socials iframe {
+    width: 100%;
 }
