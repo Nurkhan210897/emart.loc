@@ -29,9 +29,9 @@
                <div class="category-block-text">
                     <span class="category_t">Артикул: {{$product->vendor_code}}</span>
                     <span class="category_t">Цена: {{number_format($product->price,0,'.',' ')}} тг</span>
-                    <div class="category_t">Гарантия: {{$product->guarantee}}</div>
+                    <div class="category_t">Гарантия: {{$product->guarantee}} мес.</div>
                     <span class="category_t">Бранд: {{$product->brand}}</span>
-                    <span class="category_t">В наличии: {{$product->count}}</span>
+                    <span class="category_t">В наличии: {{$product->count}} шт</span>
                      <a href="#" class="btn_kaspi"><img src="/images/kaspi_logo.webp"><div class="price_wrapper"> Купить в кредит <div class="price_info"><span class="large_text">4 460  </span><span class="small_text"> x 12 мес</span></div></div><a>
                     <a href="#" type="btn" class="d-block mt-4 wp_btn"><img src="/images/wp_btn.svg"></a>
                     <div class="add_cart">
