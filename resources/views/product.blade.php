@@ -4,21 +4,33 @@
 	<div class="row">
 		<div class="col-xl-6 h-100">
 			<div class="product_img slider_for">
-				@foreach(json_decode($product->images) as $image)
 				<div>
-					<a href="{{Voyager::image($image)}}" data-fancybox="gallery">
-						<img src="{{Voyager::image($image)}}" />
+					<a href="{{Voyager::image($product->cover)}}" data-fancybox="gallery">
+						<img src="{{Voyager::image($product->cover)}}" />
 					</a>
 				</div>
-				@endforeach
+				@if(!empty($product->images))
+					@foreach(json_decode($product->images) as $image)
+					<div>
+						<a href="{{Voyager::image($image)}}" data-fancybox="gallery">
+							<img src="{{Voyager::image($image)}}" />
+						</a>
+					</div>
+					@endforeach
+				@endif
 			</div>
+			@if(!empty($product->images))
 			<div class="slider_nav">
+				<div>
+					<img src="{{Voyager::image($product->cover)}}" />
+				</div>
 				@foreach(json_decode($product->images) as $image)
 				<div>
 					<img src="{{Voyager::image($image)}}" />
 				</div>
 				@endforeach
 			</div>
+			@endif
 		</div>
 		<div class="col-xl-6">
 			<div class="detail">
