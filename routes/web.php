@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/artisan', 'ArtisanController@runCommands');
 
 Route::get('/product/{id}','ProductController@index');
 Route::get('/products/search','ProductController@search');
