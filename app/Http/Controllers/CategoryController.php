@@ -8,7 +8,8 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $category=Category::with(['subCategories','products'])
+        $category=Category::withSubCategories()
+            ->withProducts()
             ->where('slug',$request->slug)
             ->firstOrFail();
         $title=$category->name;

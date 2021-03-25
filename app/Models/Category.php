@@ -30,6 +30,22 @@ class Category extends Model
         ];
     }
 
+    public function scopeWithSubCategories($query){
+        return $query->with([
+            'subCategories'=>function($query){
+                return $query->orderBy('serial_number','ASC');
+            }
+        ]);
+    }
+
+    public function scopeWithProducts($query){
+        return $query->with([
+            'products'=>function($query){
+                return $query->orderBy('serial_number','ASC');
+            }
+        ]);
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
