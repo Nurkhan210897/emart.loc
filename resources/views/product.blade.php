@@ -94,7 +94,7 @@
 					<td>{{$productSpecification->specification->name}}</td>
 					@if(!empty($productSpecification->textValue))
 					<td>{{$productSpecification->textValue->value}}</td>
-					@else
+					@elseif(!empty($productSpecification->listValue->list))
 					<td>{{$productSpecification->listValue->list->name}}</td>
 					@endif
 				</tr>
