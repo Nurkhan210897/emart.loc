@@ -36,9 +36,9 @@
 
                     <div class="navbar_content">
                         <a class="navbar-brand" href="/">
-                            <img src="/images/logo3.png" alt="" style="max-width:241px">
+                            <img src="/images/logo.png" alt="" style="max-width:120px">
                         </a>
-                        <div class="search" style="padding-left: 0px;width:42%">
+                        <div class="search" style="padding-left: 0px;">
                             <form action="/products/search" method='GET'>
                                 <div class="search-input">
                                     <input type="text" placeholder="Поиск" name='text'>
