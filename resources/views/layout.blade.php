@@ -22,6 +22,17 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/main.css">
     <title>{{ $title }}</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196118502-1">
+    </script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-196118502-1');
+    </script>
 </head>
 
 <body>
