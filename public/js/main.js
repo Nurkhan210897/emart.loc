@@ -100,12 +100,11 @@ $(document).ready(function() {
             success: function(res) {
                 $('.loader').remove();
                 sweetAlert('success', 'Товар успешно добавлен в корзину!');
-                $('#basketTotalCount').html(res.totalCount);
+                $('.basketTotalCount').html(res.totalCount);
                 $('#basketTotalPrice').html(res.totalPrice + ' тг');
                 $('.totalPrice[data-id="' + productId + '"]').html(res.product.totalPrice + ' тг');
             },
             error: function(e) {
-                console.log(e);
                 $('.loader').remove();
             }
         });
@@ -126,7 +125,7 @@ $(document).ready(function() {
             },
             success: function(res) {
                 sweetAlert('success', 'Товар успешно удалён с корзины!');
-                $('#basketTotalCount').html(res.totalCount);
+                $('.basketTotalCount').html(res.totalCount);
                 $('#basketTotalPrice').html(res.totalPrice);
                 $('.product[data-id="' + id + '"]').remove();
                 if (Number(res.totalCount) === 0) {

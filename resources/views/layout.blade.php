@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
         integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw=="
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main.css?v=3">
     <title>{{ $title }}</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,7 +61,7 @@
                             </div>
                             <div class="header_phone">
                                 <a href="/basket" class="basket_icon desktop">
-                                    <span id='basketTotalCount'>{{ $basketTotalCount }}</span>
+                                    <span class='basketTotalCount'>{{ $basketTotalCount }}</span>
                                     <i class="fas fa-shopping-basket"></i>
                                     корзина
                                 </a>
@@ -77,7 +77,7 @@
             </nav>
         </div>
         <a href="/basket" class="basket_icon mobile_basket">
-            <span id='basketTotalCount'>{{ $basketTotalCount }}</span>
+            <span class='basketTotalCount'>{{ $basketTotalCount }}</span>
             <i class="fas fa-shopping-basket"></i></a>
         <div class="mobile-menu">
             <ul>
@@ -231,7 +231,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
         integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
         crossorigin="anonymous"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js?v=3"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js"
         type="text/javascript"></script>
 </body>
