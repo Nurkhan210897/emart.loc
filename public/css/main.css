@@ -151,8 +151,8 @@ header {
 }
 
 .search {
-    padding-left: 50px;
-    width: 50%;
+    padding-left: 10%;
+    width: 70%;
 }
 
 .search form .btn_search {
@@ -179,8 +179,13 @@ header {
 
 .navbar_content {
     display: flex;
-    justify-content: space-between;
+}
+
+.nav_content {
+    display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .navbar-nav {
@@ -200,6 +205,11 @@ header {
 
 .navbar-brand img {
     max-width: 100px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
 }
 
 nav ul {
@@ -1020,7 +1030,7 @@ footer li a:hover {
 
 .mobile_basket i {
     font-size: 35px;
-    color: rgb(5 153 7) !important;
+    color: #fff !important;
 }
 
 .mobile_basket span {
@@ -1034,6 +1044,28 @@ footer li a:hover {
 }
 
 @media only screen and (max-width: 576px) {
+    .navbar_content {
+        display: block;
+    }
+    .navbar-brand {
+        display: block;
+        text-align: center;
+        margin-right: 0;
+    }
+    .nav_content {
+        display: block;
+    }
+    .nav_content .search {
+        width: 100%;
+        padding-left: 0;
+        margin: 20px 0;
+    }
+    .header_phone .basket_icon {
+        display: none !important;
+    }
+    .header_phone {
+        text-align: center !important;
+    }
     .mobile-menu {
         display: flex !important;
     }
@@ -1145,6 +1177,9 @@ footer li a:hover {
 }
 
 @media only screen and (max-width: 768px) {
+    .navbar-brand img {
+        max-width: 85px !important;
+    }
     .add_cart .btn {
         width: 100%;
         max-width: 160px;
@@ -1182,6 +1217,7 @@ footer li a:hover {
         align-items: unset !important;
     }
     .burger {
+        background-color: rgb(87 87 87) !important;
         display: flex !important;
     }
     .modal-dialog {
@@ -1249,7 +1285,16 @@ footer li a:hover {
     }
 }
 
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+    .burger {
+        display: none !important;
+    }
+}
+
 @media only screen and (min-width: 800px) and (max-width: 1024px) {
+    .search {
+        width: 60%;
+    }
     .modal-dialog {
         max-width: 90%;
     }
@@ -1437,6 +1482,9 @@ textarea {
 }
 
 @media only screen and (max-width: 576px) {
+    .nav_links {
+        display: none;
+    }
     .user_info li {
         flex-direction: column;
     }
@@ -1472,7 +1520,7 @@ textarea {
 }
 
 .basket_icon {
-    color: #000;
+    color: #fff;
     font-size: 16px;
     margin-left: 20px;
     margin-bottom: 10px;
@@ -1481,7 +1529,7 @@ textarea {
     padding: 5px 10px;
     border-radius: 5px;
     transition: all .5s ease;
-    background-color: #ccc;
+    background-color: rgb(87 87 87) !important;
 }
 
 .basket_icon.desktop {

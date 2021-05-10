@@ -49,26 +49,28 @@
                         <a class="navbar-brand" href="/">
                             <img src="/images/logo.png" alt="" style="max-width:120px">
                         </a>
-                        <div class="search" style="padding-left: 0px;">
-                            <form action="/products/search" method='GET'>
-                                <div class="search-input">
-                                    <input type="text" placeholder="Поиск" name='text'>
-                                    <i class="fas fa-search"></i>
-                                </div>
-                                <button type="submit" class="btn btn_search">Найти</button>
-                            </form>
-                        </div>
-                        <div class="header_phone">
-                            <a href="/basket" class="basket_icon desktop">
-                                <span id='basketTotalCount'>{{ $basketTotalCount }}</span>
-                                <i class="fas fa-shopping-basket"></i>
-                                корзина
-                            </a>
-                            <div class="header_phone_content">
-                                <a href="tel:+7 778 293 06 06">
-                                    +7 778 293 06 06
+                        <div class="nav_content">
+                            <div class="search">
+                                <form action="/products/search" method='GET'>
+                                    <div class="search-input">
+                                        <input type="text" placeholder="Поиск" name='text'>
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <button type="submit" class="btn btn_search">Найти</button>
+                                </form>
+                            </div>
+                            <div class="header_phone">
+                                <a href="/basket" class="basket_icon desktop">
+                                    <span id='basketTotalCount'>{{ $basketTotalCount }}</span>
+                                    <i class="fas fa-shopping-basket"></i>
+                                    корзина
                                 </a>
-                                <p>Без выходных с 9:00-22:00</p>
+                                <div class="header_phone_content">
+                                    <a href="tel:+7 778 293 06 06">
+                                        +7 778 293 06 06
+                                    </a>
+                                    <p>Без выходных с 9:00-22:00</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,14 +80,6 @@
             <span id='basketTotalCount'>{{ $basketTotalCount }}</span>
             <i class="fas fa-shopping-basket"></i></a>
         <div class="mobile-menu">
-            <div class="search">
-                <form action="/products/search" method='GET'>
-                    <div class="search-input">
-                        <input type="text" placeholder="Поиск" name='text'>
-                        <i class="fas fa-search"></i>
-                    </div>
-                </form>
-            </div>
             <ul>
                 @foreach ($aboutCompanyPages as $pages)
                     @if ($pages->in_header)
@@ -96,10 +90,10 @@
                 @endforeach
             </ul>
         </div>
-        
+
     </header>
 
-<div style="background-color: rgb(87 87 87) !important;position: relative;padding-top:15px;padding-bottom:15px">
+<div class="nav_links" style="background-color: rgb(87 87 87) !important;position: relative;padding-top:15px;padding-bottom:15px">
 <div class="container">
             <div class="row">
                 <div class="col-12" style="padding: 0px;">
@@ -193,10 +187,7 @@
                         <li><a href="#">+7-747-705-18-18</a></li>
                         <li><a href="#">+7-747-705-13-13</a></li>
                         <li><a href="#">+7-778-293-36-06</a></li>
-                        <li><a href="#">emartkz@gmail.com</a></li>
-                        <li>
                             <a href="https://instagram.com/_electro_mart?igshid=1mkbpiak51std">
-                                <i class="fab fa-instagram" style='font-size:37px'></i>
                             </a>
                         </li>
                     </ul>
