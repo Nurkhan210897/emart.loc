@@ -47,24 +47,24 @@
 
                     <div class="navbar_content">
                         <a class="navbar-brand" href="/">
-                            <img src="/images/logo.png" alt="" style="max-width:120px">
+                            <img src="/images/logo.svg" alt="" style="max-width:260px">
                         </a>
                         <div class="nav_content">
                             <div class="search">
                                 <form action="/products/search" method='GET'>
                                     <div class="search-input">
-                                        <input type="text" placeholder="Поиск" name='text'>
-                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="Поиск..." name='text'>
+                                        <img src="/images/search-icon.svg" class="search-icon" alt="">
                                     </div>
-                                    <button type="submit" class="btn btn_search">Найти</button>
+                                    {{-- <button type="submit" class="btn btn_search">Найти</button> --}}
                                 </form>
                             </div>
                             <div class="header_phone">
-                                <a href="/basket" class="basket_icon desktop">
+                                {{-- <a href="/basket" class="basket_icon desktop">
                                     <span class='basketTotalCount'>{{ $basketTotalCount }}</span>
                                     <i class="fas fa-shopping-basket"></i>
                                     корзина
-                                </a>
+                                </a> --}}
                                 <div class="header_phone_content">
                                     <a href="tel:+7 778 293 06 06">
                                         +7 778 293 06 06

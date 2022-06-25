@@ -5,6 +5,16 @@ html {
     overflow-x: hidden;
 }
 
+@media (min-width: 1200px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1180px;
+    }
+}
+
 .silver_text {
     color: #767676;
 }
@@ -280,16 +290,20 @@ nav ul li a:hover {
     align-items: center;
 }
 
-.search-input i {
+.search-input .search-icon {
+    max-width: 24px;
+    max-height: 24px;
     position: absolute;
-    right: 15px;
+    right: 24px;
 }
 
 .search input[type=text] {
     width: 100%;
     border-radius: 5px;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
+    padding: 12px 24px;
+    border-color: transparent;
+    background: rgba(0, 0, 0, 0.14);
+    border-radius: 90px
 }
 
 .search input[type=text]:focus {
@@ -942,7 +956,7 @@ footer li a:hover {
     color: #fff;
     border-bottom: 2px solid #e04131;
     font-size: 14px;
-    text-decoration: none!important;
+    text-decoration: none !important;
     border-radius: 4px;
     align-items: center;
     justify-content: center;
