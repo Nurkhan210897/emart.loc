@@ -59,15 +59,37 @@ $(document).ready(function() {
         ]
 
     });
-    // $('.slider_nav img').each((i, item) => {
-    //         $(item).click(function() {
-    //             $('.slider_for img').attr('src', $(item).attr('src'));
-    //             $('.slider_for a').attr('href', $(item).attr('src'));
-    //         })
-    //     })
-    // $('[data-fancybox="gallery"]').fancybox({
-    //     toolbar: "smallBtn",
-    // });
+
+    $('.main_slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: true,
+        dots: true,
+        dotsClass: 'custom_paging',
+        appendArrows: '.slider-arrows',
+        prevArrow: '<span class="slider-arrow"><</span>',
+        nextArrow: '<span class="slider-arrow">></span>',
+        customPaging: function(slick) {
+            return (slick.currentSlide + 1) + '/' + slick.slideCount;
+        }
+    }).on('afterChange', function(event, slick, currentSlide) {
+        $(this).find('*[role="tablist"]').find('li').eq(0).text(slick.options.customPaging.call(this, slick, currentSlide))
+    })
+
+    $(".main_slider").find('*[role="tablist"]').find('li:not(:first)').hide()
+
+    $(".brends_slider").slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: false,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: true,
+        dots: false,
+    })
+
     $('.addBasketBtn').on('click', function(e) {
         let productId = $(this).attr('data-id');
         let count = $('input[data-id=' + productId + ']').val();
@@ -182,14 +204,14 @@ $(document).ready(function() {
         e.preventDefault();
         var data = $('#callForm').serializeArray();
         $.ajax({
-            url:'/calls',
-            method:'POST',
-            data:data,
-            success:function (res) {
+            url: '/calls',
+            method: 'POST',
+            data: data,
+            success: function(res) {
                 $('#callModal').modal('hide');
-                sweetAlert('success','Ваша заявка успешно отправлена в обработку!');
+                sweetAlert('success', 'Ваша заявка успешно отправлена в обработку!');
             },
-            error:function (err) {
+            error: function(err) {
                 console.log(err);
             }
         });
@@ -206,4 +228,9 @@ $(document).ready(function() {
             timer: 1500
         });
     }
+
+    $(".question_header").click(function() {
+        $(this).next().slideToggle();
+        $(this).toggleClass("active")
+    })
 });
