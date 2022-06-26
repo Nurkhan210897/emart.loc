@@ -24,14 +24,16 @@
     <title>{{ $title }}</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196118502-1">
-    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196118502-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'UA-196118502-1');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-196118502-1');
     </script>
 </head>
 
@@ -40,40 +42,40 @@
     <header class="bg_layout">
         <div class="container">
             <nav class="navbar navbar-expand-lg  navbar-dark ">
-
                 <div class="burger">
                     <span class="burger-lines"></span>
                 </div>
-
-                    <div class="navbar_content">
-                        <a class="navbar-brand" href="/">
-                            <img src="/images/logo.png" alt="" style="max-width:120px">
-                        </a>
-                        <div class="nav_content">
-                            <div class="search">
-                                <form action="/products/search" method='GET'>
-                                    <div class="search-input">
-                                        <input type="text" placeholder="Поиск" name='text'>
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                    <button type="submit" class="btn btn_search">Найти</button>
-                                </form>
+                <div class="navbar_content">
+                    <a class="navbar-brand" href="/">
+                        <img src="/images/logo.svg" alt="" style="max-width:260px">
+                    </a>
+                    <div class="search">
+                        <form action="/products/search" method='GET'>
+                            <div class="search-input">
+                                <input type="text" placeholder="Поиск..." name='text'>
+                                <img src="/images/search-icon.svg" class="search-icon" alt="">
                             </div>
-                            <div class="header_phone">
-                                <a href="/basket" class="basket_icon desktop">
+                            {{-- <button type="submit" class="btn btn_search">Найти</button> --}}
+                        </form>
+                    </div>
+                    <div class="header_phone">
+                        {{-- <a href="/basket" class="basket_icon desktop">
                                     <span class='basketTotalCount'>{{ $basketTotalCount }}</span>
                                     <i class="fas fa-shopping-basket"></i>
                                     корзина
-                                </a>
-                                <div class="header_phone_content">
-                                    <a href="tel:+7 778 293 06 06">
-                                        +7 778 293 06 06
-                                    </a>
-                                    <p>Без выходных с 9:00-22:00</p>
-                                </div>
-                            </div>
+                                </a> --}}
+                        <div class="header_phone_content m-none">
+                            <a href="tel:+7 778 293 06 06" class="phone">
+                                +7 778 293 06 06
+                                <img src="/images/wp-icon.svg" alt="">
+                            </a>
+                            {{-- <p>Без выходных с 9:00-22:00</p> --}}
                         </div>
                     </div>
+                    <button class="header_button m-none">
+                        <img src="/images/menu-icon.svg" alt="">
+                    </button>
+                </div>
             </nav>
         </div>
         <a href="/basket" class="basket_icon mobile_basket">
@@ -88,20 +90,73 @@
                         </li>
                     @endif
                 @endforeach
+                <div class="header_phone_content">
+                    <a href="tel:+7 778 293 06 06" class="phone">
+                        +7 778 293 06 06
+                        <img src="/images/wp-icon.svg" alt="">
+                    </a>
+                    {{-- <p>Без выходных с 9:00-22:00</p> --}}
+                </div>
             </ul>
         </div>
-
     </header>
+    <div class="main_slider_wrapper">
+        <div class="main_slider">
+            <div class="main_slider-item" style="background-image: url('/storage/img/slide_img.png')">
+                <div class="container">
+                    <div class="slder_text">
+                        <p class="slider_title">Продажа инструментов <span class="slider_title_item">Electromart</span>
+                        </p>
+                        <div class="slider_descr">
+                            <p>4+1 при аренде инструментов на 4 дня 5-ый день идет в подарок!
+                            </p>
+                        </div>
+                        <div class="slider-navs">
+                            <button class="btn prev slider-arrow"><img src="/storage/img/slider-left.svg"></button>
+                            <div class="slider-dots">
+                                <div class="slider-dots-count"></div>
+                            </div>
+                            <button class="btn next slider-arrow"><img
+                                    src="/storage/img/main-slider-right.svg"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_slider-item">
+                <div class="container">
+                    <div class="slder_text">
+                        <p class="slider_title">Продажа инструментов <span class="slider_title_item">Electromart</span>
+                        </p>
+                        <div class="slider_descr">
+                            <p>4+1 при аренде инструментов на 4 дня 5-ый день идет в подарок!
+                            </p>
+                        </div>
+                        <div class="slider-navs">
+                            <button class="btn prev slider-arrow"><img src="/storage/img/slider-left.svg"></button>
+                            <div class="slider-dots">
+                                <div class="slider-dots-count"></div>
+                            </div>
+                            <button class="btn next slider-arrow"><img
+                                    src="/storage/img/main-slider-right.svg"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="nav_links" style="background-color: rgb(87 87 87) !important;position: relative;padding-top:15px;padding-bottom:15px">
-<div class="container">
+
+    <div class="nav_links"
+        style="background-color: rgb(87 87 87) !important;position: relative;padding-top:15px;padding-bottom:15px">
+        <div class="container">
             <div class="row">
                 <div class="col-12" style="padding: 0px;">
-                <ul>
+                    <ul>
                         @foreach ($aboutCompanyPages as $pages)
                             @if ($pages->in_header)
                                 <li style="display: inline;margin-left:40px">
-                                    <a href="/page/{{ $pages->id }}" target='_blank' style="color: white;text-decoration: none;">{{ $pages->name }}</a>
+                                    <a href="/page/{{ $pages->id }}" target='_blank'
+                                        style="color: white;text-decoration: none;">{{ $pages->name }}</a>
                                 </li>
                             @endif
                         @endforeach
@@ -109,7 +164,7 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
     <!-- HEADER -->
 
@@ -128,6 +183,123 @@
 
     @yield('main')
 
+    <!-- ABOUT_US -->
+
+    <div class="about_us">
+        <div class="container">
+            <div class="title-block">
+                <h2>Про нас</h2>
+            </div>
+            <div class="abous_us_slider">
+                <div class="about_us_slide">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="about_us_text">
+                                <p>Что мне нужно для аренды оборудования?Что мне нужно для аренды оборудования?Что мне
+                                    нужно
+                                    для
+                                    аренды оборудования?Что мне нужно для аренды оборудования?</p>
+                            </div>
+                            <div class="slider-navs">
+                                <button class="btn slider-arrow prev_about_slider"><img
+                                        src="/storage/img/slider-left.svg"></button>
+                                <div class="abous_us_slider-dots">
+                                    <div class="about_slider-dots-count"></div>
+                                </div>
+                                <button class="btn slider-arrow next_about_slider"><img
+                                        src="/storage/img/main-slider-right.svg"></button>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <img src="/storage/img/about_us_img.png" class="about_us_img" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="about_us_slide">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="about_us_text">
+                                <p>Что мне нужно для аренды оборудования?Что мне нужно для аренды оборудования?Что мне
+                                    нужно
+                                    для
+                                    аренды оборудования?Что мне нужно для аренды оборудования?</p>
+                            </div>
+                            <div class="slider-navs">
+                                <button class="btn slider-arrow prev_about_slider"><img
+                                        src="/storage/img/slider-left.svg"></button>
+                                <div class="abous_us_slider-dots">
+                                    <div class="about_slider-dots-count"></div>
+                                </div>
+                                <button class="btn slider-arrow next_about_slider"><img
+                                        src="/storage/img/main-slider-right.svg"></button>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <img src="/storage/img/about_us_img.png" class="about_us_img" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT_US_END -->
+
+    <!-- BRANDS -->
+    <div class="brands">
+        <div class="container">
+            <div class="title-block-black">
+                <h2>Бренды</h2>
+            </div>
+            <div class="brands_slider">
+                <div class="brand_slider_item"><img src="/storage/img/brend1.svg" alt=""></div>
+                <div class="brand_slider_item"><img src="/storage/img/brend2.svg" alt=""></div>
+                <div class="brand_slider_item"><img src="/storage/img/brend3.svg" alt=""></div>
+                <div class="brand_slider_item"><img src="/storage/img/brend1.svg" alt=""></div>
+                <div class="brand_slider_item"><img src="/storage/img/brend2.svg" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <!-- BRANDS_END -->
+
+    <!-- Questions-->
+    <div class="questions">
+        <div class="container">
+            <div class="title-block">
+                <h2>Часто задаваемые вопросы</h2>
+            </div>
+            <div class="questions_content">
+                <div class="question">
+                    <div class="question_header">
+                        <p>Что мне нужно для аренды оборудования?</p>
+                        <button class="btn plus">
+                            <img src="/storage/img/plus.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="question_description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos porro asperiores repudiandae
+                            suscipit enim dolorum illum labore similique, beatae itaque.</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="question_header">
+                        <p>Что мне нужно для аренды оборудования?</p>
+                        <button class="btn plus">
+                            <img src="/storage/img/plus.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="question_description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos porro asperiores repudiandae
+                            suscipit enim dolorum illum labore similique, beatae itaque.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Questions-END-->
+
+
     <div class="back-call">
         <div class="back-call-content">
             <span class="tooltip-top">Оставьте заявку на звонок</span>
@@ -139,8 +311,8 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade back_call_modal" id="callModal" tabindex="-1" role="dialog" aria-labelledby="callModalLabel"
-        aria-hidden="true">
+    <div class="modal fade back_call_modal" id="callModal" tabindex="-1" role="dialog"
+        aria-labelledby="callModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -158,7 +330,7 @@
         </div>
     </div>
     <!-- FOOTER -->
-    <footer class="bg_layout" style="background-color: rgb(87 87 87) !important;position: relative">
+    <footer >
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-md-6">
@@ -174,38 +346,29 @@
                             @endif
                         @endforeach
                     </ul>
-                    <div class="footer-end">
-                        <p>2017-2021 © electromart.kz — специализированный интернет-магазин, с широким аспектом товаров.</p>
-                    </div>
                 </div>
-                <div class="col-xl-4 col-md-6">
+                <div class="col-xl-5 col-md-6">
                     <div class="title">
-                        <p>Контакты:</p>
+                        <p>Интернет-магазин</p>
                     </div>
                     <ul>
-                        <li><a href="#">Балқантау, 95а, Нур-Султан</a></li>
-                        <li><a href="#">+7-747-705-18-18</a></li>
-                        <li><a href="#">+7-747-705-13-13</a></li>
-                        <li><a href="#">+7-778-293-36-06</a></li>
-                            <a href="https://instagram.com/_electro_mart?igshid=1mkbpiak51std">
-                            </a>
-                        </li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Публичная оферта</a></li>
                     </ul>
                 </div>
-                <div class="col-xl-4 col-md-6">
+                <div class="col-xl-3 col-md-6">
                     <div class="title">
-                        <p>Мы на карте:</p>
+                        <p>Контакты</p>
                     </div>
-                    <div class="socials">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2810.2124995338704!2d71.49066803454014!3d51.13401319375373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424583dbfd2b6031%3A0x81dc5b000bf62e8b!2z0YPQuy4g0JHQsNC70LrQsNC90YLQsNGDIDk1LCDQndGD0YAt0KHRg9C70YLQsNC9IDAxMDAwMA!5e0!3m2!1sru!2skz!4v1614513620472!5m2!1sru!2skz"
-                            width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
-                    </div>
+                    <ul>
+                        <li><a href="#"><img src="/images/wp-icon.svg" alt=""></a></li>
+                        <li><a href="#+7 778 293 06 06" class="tel">+7 778 293 06 06</a></li>
+                    </ul>
+                    <p>Балқантау, 95а, Нур-Султан</p>
                 </div>
             </div>
             <div class="footer-end">
-
+                <a href="/"> <img src="/images/logo.svg" alt=""></a>
             </div>
         </div>
     </footer>

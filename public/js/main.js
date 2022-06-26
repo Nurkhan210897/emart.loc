@@ -1,18 +1,12 @@
 $(document).ready(function() {
     $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-        // new Drift(document.querySelector('.drift-demo-trigger'), {
-        //     paneContainer: document.querySelector('.detail'),
-        //     inlinePane: 900,
-        //     inlineOffsetY: -85,
-        //     containInline: true,
-        //     hoverBoundingBox: false
-        // });
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
     $(".burger").click(function() {
-        console.log("burger");
         $(".burger-lines").toggleClass("burger-active");
         $(".mobile-menu").toggleClass("mobile-menu-active");
+        $("html").toggleClass("active-menu")
     });
 
     $("a.gallery").fancybox();
@@ -59,15 +53,60 @@ $(document).ready(function() {
         ]
 
     });
-    // $('.slider_nav img').each((i, item) => {
-    //         $(item).click(function() {
-    //             $('.slider_for img').attr('src', $(item).attr('src'));
-    //             $('.slider_for a').attr('href', $(item).attr('src'));
-    //         })
-    //     })
-    // $('[data-fancybox="gallery"]').fancybox({
-    //     toolbar: "smallBtn",
-    // });
+
+    function getCurrentSlide(el, currentSlide, slides) {
+        return currentSlide > 0 ? $(el).html(`<span class="current-slide">${currentSlide + 1}</span> / ${slides}`) : $(el).html(`<span class="current-slide">1</span>  / ${slides}`)
+    }
+
+
+    $('.main_slider').on('init', function(event, slick) {
+        getCurrentSlide($(".slider-dots-count"), 0, slick.$slides.length)
+    });
+    $('.main_slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: true,
+        dots: true,
+        appendDots: $(".slider-dots"),
+        appendArrows: '.slider-navs',
+        prevArrow: '.prev',
+        nextArrow: '.next',
+    }).on('afterChange', function(event, slick, currentSlide) {
+        getCurrentSlide(".slider-dots-count", currentSlide, slick.$slides.length)
+    })
+
+
+    $('.abous_us_slider').on('init', function(event, slick) {
+        getCurrentSlide($(".about_slider-dots-count"), 0, slick.$slides.length)
+    });
+
+    $('.abous_us_slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: true,
+        dots: true,
+        appendDots: ".abous_us_slider-dots",
+        appendArrows: ".about_slider-navs",
+        prevArrow: '.prev_about_slider',
+        nextArrow: '.next_about_slider',
+    }).on('afterChange', function(event, slick, currentSlide) {
+        getCurrentSlide(".about_slider-dots-count", currentSlide, slick.$slides.length)
+    })
+
+    $(".brands_slider").slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: false,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: true,
+        dots: false,
+    })
+
     $('.addBasketBtn').on('click', function(e) {
         let productId = $(this).attr('data-id');
         let count = $('input[data-id=' + productId + ']').val();
@@ -182,14 +221,14 @@ $(document).ready(function() {
         e.preventDefault();
         var data = $('#callForm').serializeArray();
         $.ajax({
-            url:'/calls',
-            method:'POST',
-            data:data,
-            success:function (res) {
+            url: '/calls',
+            method: 'POST',
+            data: data,
+            success: function(res) {
                 $('#callModal').modal('hide');
-                sweetAlert('success','Ваша заявка успешно отправлена в обработку!');
+                sweetAlert('success', 'Ваша заявка успешно отправлена в обработку!');
             },
-            error:function (err) {
+            error: function(err) {
                 console.log(err);
             }
         });
@@ -206,4 +245,9 @@ $(document).ready(function() {
             timer: 1500
         });
     }
+
+    $(".question_header").click(function() {
+        $(this).next().slideToggle();
+        $(this).toggleClass("active")
+    })
 });
