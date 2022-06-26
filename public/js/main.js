@@ -1,14 +1,8 @@
 $(document).ready(function() {
     $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-        // new Drift(document.querySelector('.drift-demo-trigger'), {
-        //     paneContainer: document.querySelector('.detail'),
-        //     inlinePane: 900,
-        //     inlineOffsetY: -85,
-        //     containInline: true,
-        //     hoverBoundingBox: false
-        // });
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
     $(".burger").click(function() {
         console.log("burger");
         $(".burger-lines").toggleClass("burger-active");
@@ -60,6 +54,14 @@ $(document).ready(function() {
 
     });
 
+    function getCurrentSlide(el, currentSlide, slides) {
+        return currentSlide > 0 ? $(el).html(`<span class="current-slide">${currentSlide + 1}</span> / ${slides}`) : $(el).html(`<span class="current-slide">1</span>  / ${slides}`)
+    }
+
+
+    $('.main_slider').on('init', function(event, slick) {
+        getCurrentSlide($(".slider-dots-count"), 0, slick.$slides.length)
+    });
     $('.main_slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -67,20 +69,35 @@ $(document).ready(function() {
         autoplaySpeed: 2000,
         arrows: true,
         dots: true,
-        dotsClass: 'custom_paging',
-        appendArrows: '.slider-arrows',
-        prevArrow: '<span class="slider-arrow"><</span>',
-        nextArrow: '<span class="slider-arrow">></span>',
-        customPaging: function(slick) {
-            return (slick.currentSlide + 1) + '/' + slick.slideCount;
-        }
+        appendDots: $(".slider-dots"),
+        appendArrows: '.slider-navs',
+        prevArrow: '.prev',
+        nextArrow: '.next',
     }).on('afterChange', function(event, slick, currentSlide) {
-        $(this).find('*[role="tablist"]').find('li').eq(0).text(slick.options.customPaging.call(this, slick, currentSlide))
+        getCurrentSlide(".slider-dots-count", currentSlide, slick.$slides.length)
     })
 
-    $(".main_slider").find('*[role="tablist"]').find('li:not(:first)').hide()
 
-    $(".brends_slider").slick({
+    $('.abous_us_slider').on('init', function(event, slick) {
+        getCurrentSlide($(".about_slider-dots-count"), 0, slick.$slides.length)
+    });
+
+    $('.abous_us_slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        arrows: true,
+        dots: true,
+        appendDots: ".abous_us_slider-dots",
+        appendArrows: ".about_slider-navs",
+        prevArrow: '.prev_about_slider',
+        nextArrow: '.next_about_slider',
+    }).on('afterChange', function(event, slick, currentSlide) {
+        getCurrentSlide(".about_slider-dots-count", currentSlide, slick.$slides.length)
+    })
+
+    $(".brands_slider").slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         infinite: false,

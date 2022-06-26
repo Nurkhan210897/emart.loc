@@ -93,29 +93,51 @@
             </ul>
         </div>
     </header>
-    <div class="main_slider">
-        <div class="main_slider-item" style="background-image: url('/storage/img/slide_img.png')">
-            <div class="container">
-                <div class="slder_text">
-                    <p class="slider_title">Продажа инструментов <span class="slider_title_item">Electromart</span></p>
-                    <div class="slider_descr">
-                        <p>4+1 при аренде инструментов на 4 дня 5-ый день идет в подарок!
+    <div class="main_slider_wrapper">
+        <div class="main_slider">
+            <div class="main_slider-item" style="background-image: url('/storage/img/slide_img.png')">
+                <div class="container">
+                    <div class="slder_text">
+                        <p class="slider_title">Продажа инструментов <span class="slider_title_item">Electromart</span>
                         </p>
+                        <div class="slider_descr">
+                            <p>4+1 при аренде инструментов на 4 дня 5-ый день идет в подарок!
+                            </p>
+                        </div>
+                        <div class="slider-navs">
+                            <button class="btn prev slider-arrow"><img src="/storage/img/slider-left.svg"></button>
+                            <div class="slider-dots">
+                                <div class="slider-dots-count"></div>
+                            </div>
+                            <button class="btn next slider-arrow"><img
+                                    src="/storage/img/main-slider-right.svg"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_slider-item">
+                <div class="container">
+                    <div class="slder_text">
+                        <p class="slider_title">Продажа инструментов <span class="slider_title_item">Electromart</span>
+                        </p>
+                        <div class="slider_descr">
+                            <p>4+1 при аренде инструментов на 4 дня 5-ый день идет в подарок!
+                            </p>
+                        </div>
+                        <div class="slider-navs">
+                            <button class="btn prev slider-arrow"><img src="/storage/img/slider-left.svg"></button>
+                            <div class="slider-dots">
+                                <div class="slider-dots-count"></div>
+                            </div>
+                            <button class="btn next slider-arrow"><img
+                                    src="/storage/img/main-slider-right.svg"></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="main_slider-item">
-            <img src="/storage/img/slide1.png" alt="">
-        </div>
-        <div class="main_slider-item">
-            <img src="/storage/img/slide1.png" alt="">
-        </div>
-        <div class="main_slider-item">
-            <img src="/storage/img/slide1.png" alt="">
-        </div>
     </div>
-    <div class="slider-arrows"></div>
+
 
     <div class="nav_links"
         style="background-color: rgb(87 87 87) !important;position: relative;padding-top:15px;padding-bottom:15px">
@@ -162,16 +184,52 @@
                 <h2>Про нас</h2>
             </div>
             <div class="abous_us_slider">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="about_us_text">
-                            <p>Что мне нужно для аренды оборудования?Что мне нужно для аренды оборудования?Что мне нужно
-                                для
-                                аренды оборудования?Что мне нужно для аренды оборудования?</p>
+                <div class="about_us_slide">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="about_us_text">
+                                <p>Что мне нужно для аренды оборудования?Что мне нужно для аренды оборудования?Что мне
+                                    нужно
+                                    для
+                                    аренды оборудования?Что мне нужно для аренды оборудования?</p>
+                            </div>
+                            <div class="slider-navs">
+                                <button class="btn slider-arrow prev_about_slider"><img
+                                        src="/storage/img/slider-left.svg"></button>
+                                <div class="abous_us_slider-dots">
+                                    <div class="about_slider-dots-count"></div>
+                                </div>
+                                <button class="btn slider-arrow next_about_slider"><img
+                                        src="/storage/img/main-slider-right.svg"></button>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <img src="/storage/img/about_us_img.png" class="about_us_img" alt="">
                         </div>
                     </div>
-                    <div class="col-xl-6">
-                        <img src="/storage/img/about_us_img.png" alt="">
+                </div>
+                <div class="about_us_slide">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="about_us_text">
+                                <p>Что мне нужно для аренды оборудования?Что мне нужно для аренды оборудования?Что мне
+                                    нужно
+                                    для
+                                    аренды оборудования?Что мне нужно для аренды оборудования?</p>
+                            </div>
+                            <div class="slider-navs">
+                                <button class="btn slider-arrow prev_about_slider"><img
+                                        src="/storage/img/slider-left.svg"></button>
+                                <div class="abous_us_slider-dots">
+                                    <div class="about_slider-dots-count"></div>
+                                </div>
+                                <button class="btn slider-arrow next_about_slider"><img
+                                        src="/storage/img/main-slider-right.svg"></button>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <img src="/storage/img/about_us_img.png" class="about_us_img" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,22 +238,22 @@
 
     <!-- ABOUT_US_END -->
 
-    <!-- BRENDS -->
-    <div class="brends">
+    <!-- BRANDS -->
+    <div class="brands">
         <div class="container">
-            <div class="title-block">
+            <div class="title-block-black">
                 <h2>Бренды</h2>
             </div>
-            <div class="brends_slider">
-                <div class="brend_slider_item"><img src="/storage/img/brend1.svg" alt=""></div>
-                <div class="brend_slider_item"><img src="/storage/img/brend2.svg" alt=""></div>
-                <div class="brend_slider_item"><img src="/storage/img/brend3.svg" alt=""></div>
-                <div class="brend_slider_item"><img src="/storage/img/brend1.svg" alt=""></div>
-                <div class="brend_slider_item"><img src="/storage/img/brend2.svg" alt=""></div>
+            <div class="brands_slider">
+                <div class="brand_slider_item"><img src="/storage/img/brend1.svg" alt=""></div>
+                <div class="brand_slider_item"><img src="/storage/img/brend2.svg" alt=""></div>
+                <div class="brand_slider_item"><img src="/storage/img/brend3.svg" alt=""></div>
+                <div class="brand_slider_item"><img src="/storage/img/brend1.svg" alt=""></div>
+                <div class="brand_slider_item"><img src="/storage/img/brend2.svg" alt=""></div>
             </div>
         </div>
     </div>
-    <!-- BRENDS_END -->
+    <!-- BRANDS_END -->
 
     <!-- Questions-->
     <div class="questions">
@@ -265,7 +323,7 @@
         </div>
     </div>
     <!-- FOOTER -->
-    <footer class="bg_layout" style="background-color: rgb(87 87 87) !important;position: relative">
+    <footer class="bg_layout">
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-md-6">
@@ -281,39 +339,29 @@
                             @endif
                         @endforeach
                     </ul>
-                    <div class="footer-end">
-                        <p>2017-2021 © electromart.kz — специализированный интернет-магазин, с широким аспектом товаров.
-                        </p>
-                    </div>
                 </div>
-                <div class="col-xl-4 col-md-6">
+                <div class="col-xl-5 col-md-6">
                     <div class="title">
-                        <p>Контакты:</p>
+                        <p>Интернет-магазин</p>
                     </div>
                     <ul>
-                        <li><a href="#">Балқантау, 95а, Нур-Султан</a></li>
-                        <li><a href="#">+7-747-705-18-18</a></li>
-                        <li><a href="#">+7-747-705-13-13</a></li>
-                        <li><a href="#">+7-778-293-36-06</a></li>
-                        <a href="https://instagram.com/_electro_mart?igshid=1mkbpiak51std">
-                        </a>
-                        </li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Публичная оферта</a></li>
                     </ul>
                 </div>
-                <div class="col-xl-4 col-md-6">
+                <div class="col-xl-3 col-md-6">
                     <div class="title">
-                        <p>Мы на карте:</p>
+                        <p>Контакты</p>
                     </div>
-                    <div class="socials">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2810.2124995338704!2d71.49066803454014!3d51.13401319375373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424583dbfd2b6031%3A0x81dc5b000bf62e8b!2z0YPQuy4g0JHQsNC70LrQsNC90YLQsNGDIDk1LCDQndGD0YAt0KHRg9C70YLQsNC9IDAxMDAwMA!5e0!3m2!1sru!2skz!4v1614513620472!5m2!1sru!2skz"
-                            width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
-                    </div>
+                    <ul>
+                        <li><a href="#"><img src="/images/wp-icon.svg" alt=""></a></li>
+                        <li><a href="#+7 778 293 06 06" class="tel">+7 778 293 06 06</a></li>
+                    </ul>
+                    <p>Балқантау, 95а, Нур-Султан</p>
                 </div>
             </div>
             <div class="footer-end">
-
+                <a href="/"> <img src="/images/logo.svg" alt=""></a>
             </div>
         </div>
     </footer>

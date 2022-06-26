@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('main')
-<div class="main-gategory mt-4">
+<div class="main-gategory">
         <div class="container">
             <div class="main-gategory-content">
                 <div class="title">

@@ -2,7 +2,7 @@
 
 @section('main')
     <!-- AREND-CATEGORY -->
-    <div class="main-gategory mt-4">
+    <div class="main-gategory">
         <div class="container">
             <div class="main-gategory-content">
                 <div class="row">
@@ -10,7 +10,9 @@
                     <div class="col-xl-4 col-6 col-md-4">
                         <div class="main-cartegory-card">
                             <a href="/{{$category->slug}}">
-                                <p>{{$category->name}}</p>
+                                <div class="card_text">
+                                    <p>{{$category->name}}</p>
+                                </div>
                                 <div class="gategory-block">
                                     <img src="/storage/img/card-img.png" alt="">
                                 </div>
