@@ -2,9 +2,9 @@
 
 @section('main')
     <!-- AREND-CATEGORY -->
-    <div class="main-gategory">
+    <div class="main-category">
         <div class="container">
-            <div class="main-gategory-content">
+            <div class="main-category-content">
                 <div class="row">
                     @foreach($categories as $category)
                     <div class="col-xl-4 col-6 col-md-4">
@@ -13,7 +13,7 @@
                                 <div class="card_text">
                                     <p>{{$category->name}}</p>
                                 </div>
-                                <div class="gategory-block">
+                                <div class="category-block">
                                     <img src="/storage/img/card-img.png" alt="">
                                 </div>
                             </a>

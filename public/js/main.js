@@ -4,9 +4,9 @@ $(document).ready(function() {
     })
 
     $(".burger").click(function() {
-        console.log("burger");
         $(".burger-lines").toggleClass("burger-active");
         $(".mobile-menu").toggleClass("mobile-menu-active");
+        $("html").toggleClass("active-menu")
     });
 
     $("a.gallery").fancybox();

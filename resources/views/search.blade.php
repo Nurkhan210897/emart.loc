@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('main')
-<div class="main-gategory">
+<div class="main-category">
         <div class="container">
-            <div class="main-gategory-content">
+            <div class="main-category-content">
                 <div class="title">
                     <p>Результаты поиска: '{{$searched}}'</p>
                 </div>
@@ -13,7 +13,7 @@
                             <div class="col-xl-3 col-6 col-md-4">
                                 <div class="category-main-top">
                                     <a href="/{{$product->category->slug}}/{{$product->slug}}">
-                                        <div class="gategory-block">
+                                        <div class="category-block">
                                             <img src="{{Voyager::image($product->cover)}}" alt="">
                                         </div>
                                         <p>{{$product->name}}</p>

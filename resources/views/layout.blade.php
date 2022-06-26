@@ -64,7 +64,7 @@
                                     <i class="fas fa-shopping-basket"></i>
                                     корзина
                                 </a> --}}
-                        <div class="header_phone_content">
+                        <div class="header_phone_content m-none">
                             <a href="tel:+7 778 293 06 06" class="phone">
                                 +7 778 293 06 06
                                 <img src="/images/wp-icon.svg" alt="">
@@ -72,7 +72,7 @@
                             {{-- <p>Без выходных с 9:00-22:00</p> --}}
                         </div>
                     </div>
-                    <button class="header_button">
+                    <button class="header_button m-none">
                         <img src="/images/menu-icon.svg" alt="">
                     </button>
                 </div>
@@ -90,6 +90,13 @@
                         </li>
                     @endif
                 @endforeach
+                <div class="header_phone_content">
+                    <a href="tel:+7 778 293 06 06" class="phone">
+                        +7 778 293 06 06
+                        <img src="/images/wp-icon.svg" alt="">
+                    </a>
+                    {{-- <p>Без выходных с 9:00-22:00</p> --}}
+                </div>
             </ul>
         </div>
     </header>
@@ -323,7 +330,7 @@
         </div>
     </div>
     <!-- FOOTER -->
-    <footer class="bg_layout">
+    <footer >
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-md-6">
