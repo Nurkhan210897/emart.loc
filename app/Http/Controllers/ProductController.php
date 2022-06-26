@@ -17,7 +17,9 @@ class ProductController extends Controller
     }
 
     public function search(Request $request){
-        $products=Product::where('name','like',"%$request->text%")->get();
+        $products=Product::with(['category'])
+                        ->where('name','like',"%$request->text%")
+                        ->get();
         $title='Результаты поиска';
         $searched=$request->text;
         return view('search',compact('products','title','searched'));

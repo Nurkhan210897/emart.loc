@@ -323,6 +323,8 @@
                 $('form').submit(function(e){
                     e.preventDefault();
                     var formData = new FormData($(this)[0]);
+                    let description=$("#richtextdescription_ifr").contents().find("body").html();
+                    formData.set('description',description);
                     $.ajax({
                         @if(strpos(url()->current(),'create')!==false)
                             url:'/admin/products',
@@ -335,12 +337,14 @@
                         enctype: 'multipart/form-data',
                         processData: false,
                         beforeSend:function(){
+                            $('#voyager-loader').show();
                             $('#specificationErrorBlock').hide();
                         },
                         success:function(res){
                             window.location.href='/admin/products';
                         },
                         error:function(){
+                            $('#voyager-loader').hide();
                             $('#specificationErrorBlock').show();
                         }
                     });

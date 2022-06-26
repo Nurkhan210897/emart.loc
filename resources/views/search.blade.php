@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('main')
-<div class="main-gategory mt-4">
+<div class="main-category">
         <div class="container">
-            <div class="main-gategory-content">
+            <div class="main-category-content">
                 <div class="title">
                     <p>Результаты поиска: '{{$searched}}'</p>
                 </div>
@@ -12,8 +12,8 @@
                         @foreach($products as $product)
                             <div class="col-xl-3 col-6 col-md-4">
                                 <div class="category-main-top">
-                                    <a href="/product/{{$product->id}}">
-                                        <div class="gategory-block">
+                                    <a href="/{{$product->category->slug}}/{{$product->slug}}">
+                                        <div class="category-block">
                                             <img src="{{Voyager::image($product->cover)}}" alt="">
                                         </div>
                                         <p>{{$product->name}}</p>
