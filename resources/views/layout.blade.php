@@ -145,27 +145,6 @@
         </div>
     </div>
 
-
-    <div class="nav_links"
-        style="background-color: rgb(87 87 87) !important;position: relative;padding-top:15px;padding-bottom:15px">
-        <div class="container">
-            <div class="row">
-                <div class="col-12" style="padding: 0px;">
-                    <ul>
-                        @foreach ($aboutCompanyPages as $pages)
-                            @if ($pages->in_header)
-                                <li style="display: inline;margin-left:40px">
-                                    <a href="/page/{{ $pages->id }}" target='_blank'
-                                        style="color: white;text-decoration: none;">{{ $pages->name }}</a>
-                                </li>
-                            @endif
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- HEADER -->
 
     <!-- ATTENTION -->
