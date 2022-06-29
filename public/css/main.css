@@ -86,6 +86,10 @@ input:focus {
     margin-bottom: 25px;
 }
 
+.title-page {
+    margin-bottom: 54px;
+}
+
 .title-page p {
     font-weight: 300;
     font-size: 24px;
@@ -1657,6 +1661,37 @@ footer li a:hover {
 }
 
 @media only screen and (max-width: 768px) {
+    .delivery-terms {
+        padding: 40px 0 !important;
+    }
+    .title-page {
+        margin-bottom: 25px;
+    }
+    .title-page h1 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+    .title-page p {
+        font-size: 18px;
+    }
+    .delivery-terms_content {
+        padding-right: 15px !important;
+    }
+    .delivery-terms_content .list-head {
+        display: flex;
+    }
+    .delivery-terms_content p {
+        font-size: 16px !important;
+    }
+    .delivery-terms_content .list-head .numbering {
+        position: static !important;
+    }
+    .delivery-terms_content .list-item {
+        padding-left: 15px !important;
+    }
+    .delivery-terms_content p {
+        flex: 1;
+    }
     .navbar-brand img {
         max-width: 155px !important;
     }
@@ -1777,6 +1812,51 @@ footer li a:hover {
 .delivery-terms {
     background-image: url("/storage/img/delivery_bg.png");
     padding: 105px 0 120px;
+}
+
+.delivery-terms_content {
+    background: #FFFFFF;
+    border: 5px solid rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 0px 51px rgba(0, 0, 0, 0.72);
+    border-radius: 30px;
+    padding: 20px 36px 30px 0;
+}
+
+.delivery-terms_content p {
+    font-size: 24px;
+}
+
+.delivery-terms_content .list-item {
+    padding-left: 100px;
+}
+
+.delivery-terms_content .list-head {
+    position: relative;
+}
+
+.delivery-terms_content .list-head .numbering {
+    position: absolute;
+    left: -55px;
+}
+
+.delivery-terms_content ul li .numbering {
+    width: 40px;
+    height: 40px;
+    background: #FFBE00;
+    box-shadow: 2px 3px 13px rgba(0, 0, 0, 0.42);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    margin-right: 20px;
+}
+
+.child-list .numbering {
+    float: left;
 }
 
 
