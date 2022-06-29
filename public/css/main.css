@@ -56,9 +56,9 @@ input:focus {
 }
 
 .title-block {
-    text-align: center;
-    color: #FFF;
-    margin-bottom: 50px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
 }
 
 .title-block-black {
@@ -71,6 +71,27 @@ input:focus {
     font-size: 45px;
     line-height: 53px;
     font-family: 'Rubik', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 52px;
+    font-weight: 400;
+}
+
+.title-page h1 {
+    text-align: center;
+    font-size: 45px;
+    line-height: 53px;
+    font-family: 'Rubik', sans-serif;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.title-page p {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 .slick-next {
@@ -447,14 +468,6 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-.main-category .main-category-content p {
-    transition: all .5s ease;
-}
-
-.main-category .main-category-content p:hover {
-    color: #b0b0b0;
-}
-
 .category-main {
     background-color: #ffffff;
     border-radius: 25px;
@@ -505,7 +518,12 @@ nav ul li a:hover {
     margin-top: 1.5rem;
 }
 
+.products {
+    margin-top: 70px;
+}
+
 .product_card {
+    margin-top: 22px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 39px 3px rgba(0, 0, 0, 0.19);
@@ -529,6 +547,7 @@ nav ul li a:hover {
 .product_card_descr {
     font-size: 19px;
     line-height: 23px;
+    color: #000;
 }
 
 .product_card_price {
@@ -559,6 +578,7 @@ nav ul li a:hover {
     background-size: 60%;
     display: flex;
     align-items: center;
+    padding: 25px 0;
 }
 
 .main_slider .main_slider-item .slider_bg_img {
@@ -1583,7 +1603,7 @@ footer li a:hover {
         padding: 20px 10px !important;
     }
     .main-category .main-category-content p {
-        font-size: 12px;
+        font-size: 22px;
     }
     .category-block-img {
         width: 100%;
@@ -1717,6 +1737,17 @@ footer li a:hover {
         margin-top: 30px;
     }
 }
+
+
+/* delivery terms */
+
+.delivery-terms {
+    background-image: url("/storage/img/delivery_bg.png");
+    padding: 105px 0 120px;
+}
+
+
+/* delivery terms end */
 
 @media only screen and (min-width: 576px) and (max-width: 768px) {
     .burger {
