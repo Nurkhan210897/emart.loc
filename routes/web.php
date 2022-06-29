@@ -24,6 +24,9 @@ Route::delete('/basket/delete','BasketController@delete');
 Route::post('/order/handle','OrderController@handle');
 Route::post('calls', 'CallController@handle');
 
+Route::get('/rent-terms','RentTermsController@index');
+Route::get('/delivery-terms','DeliveryTermsController@index');
+
 Route::get('/', 'IndexController@index');
 
 Route::group(['prefix' => 'admin'], function () {
