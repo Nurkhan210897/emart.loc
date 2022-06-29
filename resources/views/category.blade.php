@@ -10,7 +10,7 @@
                 <div class="row">
                     @if (!$category->subCategories->isEmpty())
                         @foreach ($category->subCategories as $subCategory)
-                            <div class="col-xl-3 col-6 col-md-4">
+                            <div class="col-xl-3 col-12 col-md-4">
                                 <div class="category-card active">
                                     <a href="/{{ $subCategory->slug }}">
                                         <div class="category-block">
@@ -26,7 +26,7 @@
                         @endforeach
                     @elseif(!$category->products->isEmpty())
                         @foreach ($category->products as $product)
-                            <div class="col-xl-3 col-6 col-md-4">
+                            <div class="col-xl-3 col-12 col-md-4">
                                 <div class="category-card">
                                     <a href="/{{ $category->slug }}/{{ $product->slug }}">
                                         <div class="category-block">

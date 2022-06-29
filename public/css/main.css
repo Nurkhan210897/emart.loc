@@ -1523,8 +1523,12 @@ footer li a:hover {
         display: flex !important;
     }
     .title {
-        font-size: 18px;
+        font-size: 18px !important;
         text-align: center;
+        margin-bottom: 15px !important;
+    }
+    footer li a {
+        font-size: 16px !important;
     }
     footer li {
         text-align: center;
@@ -1603,7 +1607,30 @@ footer li a:hover {
         padding: 20px 10px !important;
     }
     .main-category .main-category-content p {
-        font-size: 22px;
+        font-size: 18px;
+    }
+    .product_card_price {
+        font-size: 22px !important;
+    }
+    .main_slider .main_slider-item .slder_text .slider_title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 20px;
+    }
+    .main_slider .main_slider-item .slder_text .slider_descr {
+        max-width: 100%;
+        width: 100%;
+        font-size: 18px;
+    }
+    .title-block h2,
+    .title-block-black h2 {
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+    .about_us_text {
+        font-size: 18px;
     }
     .category-block-img {
         width: 100%;
@@ -1631,7 +1658,13 @@ footer li a:hover {
 
 @media only screen and (max-width: 768px) {
     .navbar-brand img {
-        max-width: 85px !important;
+        max-width: 155px !important;
+    }
+    .main-category .main-category-content {
+        padding: 30px;
+    }
+    .footer .title {
+        font-size: 16px;
     }
     .add_cart .btn {
         width: 100%;
