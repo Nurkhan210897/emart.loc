@@ -38,6 +38,14 @@ class Category extends Model
         ]);
     }
 
+    public function scopeWithFirstSubCategory($query){
+        return $query->with([
+            'subCategories'=>function($query){
+                return $query->orderBy('serial_number','ASC')->limit(1);
+            }
+        ]);
+    }
+
     public function scopeWithProducts($query){
         return $query->with([
             'products'=>function($query){
