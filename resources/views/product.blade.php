@@ -1,9 +1,9 @@
 @extends('layout')
 @section('main')
     <div class="container mt-5 mb-5 product_wrapper">
-        <div class="row">
-            <div class="col-xl-6 h-100">
-                <div class="product_img slider_for">
+        <div class="row justify-content-between">
+            <div class="col-xl-6 h-100 ">
+                {{-- <div class="product_img slider_for">
                     <div>
                         <a href="{{ Voyager::image($product->cover) }}" data-fancybox="gallery">
                             <img src="{{ Voyager::image($product->cover) }}" />
@@ -18,9 +18,9 @@
                             </div>
                         @endforeach
                     @endif
-                </div>
+                </div> --}}
                 @if (!empty($product->images))
-                    <div class="slider_nav">
+                    <div class="product_slider">
                         <div>
                             <img src="{{ Voyager::image($product->cover) }}" />
                         </div>
@@ -99,11 +99,8 @@
         <div class="mt-3">
             <div class="product_description">
                 <h4 class="product_description-title">ОПИСАНИЕ</h4>
-
+                <p class="list_title">Преимущества и особенности:</p>
                 <ul class="product_description-list">
-                    <li class="list_title">
-                        <p>Преимущества и особенности:</p>
-                    </li>
                     <li class="list_description">
                         <p>{!! $product->description !!}</p>
                     </li>

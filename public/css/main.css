@@ -1540,6 +1540,27 @@ footer li a:hover {
     justify-content: space-between;
 }
 
+.product_slider .slick-arrow {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.product_slider .slick-prev {
+    background: url(../images/product-left.svg);
+}
+
+.product_slider .slick-next {
+    background: url(../images/product-right.svg);
+}
+
+.product_slider .slick-slide img {
+    width: 100%;
+    min-height: 300px;
+}
+
 .count_wrp {
     display: flex;
     align-items: center;
@@ -1551,6 +1572,8 @@ footer li a:hover {
 }
 
 .count_wrp .count {
+    text-align: center;
+    min-width: 40px;
     margin: 0 15px;
     font-weight: 700;
     font-size: 26px;
@@ -1582,7 +1605,7 @@ footer li a:hover {
     margin-bottom: 15px
 }
 
-.product_description-list .list_title {
+.product_description .list_title {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -1590,10 +1613,27 @@ footer li a:hover {
     color: #000000;
 }
 
+.product_description-list {
+    padding-left: 30px;
+}
+
 .list_description p {
     font-weight: 100;
     font-size: 20px;
     line-height: 24px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.list_description p::after {
+    content: "";
+    position: absolute;
+    left: -15px;
+    width: 4px;
+    height: 4px;
+    background-color: #000;
+    border-radius: 50%;
 }
 
 .table {
@@ -1775,6 +1815,14 @@ td {
 }
 
 @media only screen and (max-width: 768px) {
+    .flex-elems {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .flex-elems .btn-yellow {
+        margin-bottom: 20px;
+    }
     .questions_content {
         padding: 0 10px;
     }

@@ -11,46 +11,45 @@ $(document).ready(function() {
 
     $("a.gallery").fancybox();
 
-    $('.slider_for').slick({
+    // $('.slider_for').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     arrows: true,
+    //     fade: true,
+    //     infinite: false,
+    //     asNavFor: '.slider_nav'
+    // });
+    $('.product_slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true,
-        fade: true,
-        infinite: false,
-        asNavFor: '.slider_nav'
-    });
-    $('.slider_nav').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        asNavFor: '.slider_for',
         dots: true,
         focusOnSelect: true,
         infinite: true,
         arrows: true,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1
-                }
-            }
-        ]
+        // responsive: [{
+        //         breakpoint: 1024,
+        //         settings: {
+        //             slidesToShow: 4,
+        //             slidesToScroll: 3,
+        //             infinite: true,
+        //             dots: true
+        //         }
+        //     },
+        //     {
+        //         breakpoint: 600,
+        //         settings: {
+        //             slidesToShow: 3,
+        //             slidesToScroll: 2
+        //         }
+        //     },
+        //     {
+        //         breakpoint: 480,
+        //         settings: {
+        //             slidesToShow: 3,
+        //             slidesToScroll: 1
+        //         }
+        //     }
+        // ]
 
     });
 
@@ -251,18 +250,32 @@ $(document).ready(function() {
         $(this).toggleClass("active")
     })
 
-    let count = $(".count")
+    let countElem = $(".count")
+    let count = 1;
 
-    function productCounter((btn, type) => {
+    function productCounter(type) {
         if (type === "increment") {
+            count++;
             console.log(count);
+            countElem.html(count)
         }
         if (type === "decrement") {
-            console.log(count);
+            if (count > 1) {
+                count -= 1;
+                countElem.html(count)
+            }
         }
+    };
+
+    $(".decrement-btn").click(function() {
+        console.log('decrement');
+        productCounter("decrement")
     })
 
-    $("decrement-btn").click(() => {
-        console.log($(this));
+    $(".increment-btn").click(function() {
+        console.log('increment');
+
+        productCounter("increment")
     })
+
 });
