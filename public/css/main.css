@@ -1,6 +1,6 @@
 /* UTILS */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik:wght@200;400&display=swap');
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -84,6 +84,10 @@ input:focus {
     font-family: 'Rubik', sans-serif;
     color: #fff;
     margin-bottom: 25px;
+}
+
+.title-page {
+    margin-bottom: 54px;
 }
 
 .title-page p {
@@ -503,14 +507,36 @@ nav ul li a:hover {
     transition: all .5s ease;
 }
 
+.category_list li {
+    display: flex;
+    align-items: flex-start;
+    font-size: 20px;
+    line-height: 19px;
+}
+
+.category_list li p {
+    font-weight: 500;
+    color: #000000;
+    margin-right: 10px;
+}
+
 .category-hover:hover .category-block-img {
     transform: scale(1.1);
+}
+
+.title-product {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 50px;
 }
 
 .category-block-text .category_t {
     display: block;
     margin: 7px 0;
-    font-weight: 600;
+    font-weight: 500;
     color: #000;
 }
 
@@ -1428,10 +1454,16 @@ footer li a:hover {
     font-size: 12px;
 }
 
-.btn-green {
-    background-color: #25D366;
-    border-color: #25D366;
+.btn-yellow {
+    background: #FFBE00;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 7px 14px rgba(253, 133, 10, 0.6);
+    border-radius: 30px;
     color: #fff;
+    max-width: 220px;
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
 }
 
 .btn-green i {
@@ -1491,6 +1523,92 @@ footer li a:hover {
     width: 8rem;
     height: 8rem;
     margin-top: -140px !important;
+}
+
+.wp_btn {
+    width: fit-content;
+    margin-left: -12px;
+}
+
+.wp_btn img {
+    max-width: 245px;
+}
+
+.flex-elems {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.count_wrp {
+    display: flex;
+    align-items: center;
+}
+
+.count_wrp .counter_btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.count_wrp .count {
+    margin: 0 15px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    color: #10428B;
+}
+
+.count_wrp .counter_btn {
+    padding: 0;
+}
+
+.count_wrp .counter_btn img {
+    max-width: 50px;
+    width: 100%;
+}
+
+.product_description {
+    margin-top: 56px;
+    margin-bottom: 52px
+}
+
+.product_description-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 15px
+}
+
+.product_description-list .list_title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.list_description p {
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.table {
+    margin-top: 28px;
+    border: 4px solid rgba(0, 0, 0, 0.4);
+}
+
+.table th,
+td {
+    border: 4px solid rgba(0, 0, 0, 0.4);
+}
+
+.table thead {
+    background-color: #FFBE00;
+    color: #fff;
 }
 
 @media only screen and (max-width: 576px) {
@@ -1657,6 +1775,53 @@ footer li a:hover {
 }
 
 @media only screen and (max-width: 768px) {
+    .questions_content {
+        padding: 0 10px;
+    }
+    .question_header .plus img {
+        max-width: 30px;
+    }
+    .question_header {
+        padding: 5px 0;
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .question_description {
+        font-size: 16px;
+        padding: 0;
+    }
+    .delivery-terms {
+        padding: 40px 0 !important;
+    }
+    .title-page {
+        margin-bottom: 25px;
+    }
+    .title-page h1 {
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 10px;
+    }
+    .title-page p {
+        font-size: 18px;
+    }
+    .delivery-terms_content {
+        padding-right: 15px !important;
+    }
+    .delivery-terms_content .list-head {
+        display: flex;
+    }
+    .delivery-terms_content p {
+        font-size: 16px !important;
+    }
+    .delivery-terms_content .list-head .numbering {
+        position: static !important;
+    }
+    .delivery-terms_content .list-item {
+        padding-left: 15px !important;
+    }
+    .delivery-terms_content p {
+        flex: 1;
+    }
     .navbar-brand img {
         max-width: 155px !important;
     }
@@ -1703,7 +1868,7 @@ footer li a:hover {
         align-items: unset !important;
     }
     .burger {
-        background-color: rgb(87 87 87) !important;
+        background-color: #FFBE00 !important;
         display: flex !important;
     }
     .modal-dialog {
@@ -1775,8 +1940,57 @@ footer li a:hover {
 /* delivery terms */
 
 .delivery-terms {
-    background-image: url("/storage/img/delivery_bg.png");
+    background-image: url("/storage/img/quest-bg.svg");
+    background-size: cover;
+    background-position: center;
+    background-color: #10428B;
     padding: 105px 0 120px;
+    background-repeat: no-repeat;
+}
+
+.delivery-terms_content {
+    background: #FFFFFF;
+    border: 5px solid rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 0px 51px rgba(0, 0, 0, 0.72);
+    border-radius: 30px;
+    padding: 20px 36px 30px 0;
+}
+
+.delivery-terms_content p {
+    font-size: 24px;
+}
+
+.delivery-terms_content .list-item {
+    padding-left: 100px;
+}
+
+.delivery-terms_content .list-head {
+    position: relative;
+}
+
+.delivery-terms_content .list-head .numbering {
+    position: absolute;
+    left: -55px;
+}
+
+.delivery-terms_content ul li .numbering {
+    width: 40px;
+    height: 40px;
+    background: #FFBE00;
+    box-shadow: 2px 3px 13px rgba(0, 0, 0, 0.42);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    margin-right: 20px;
+}
+
+.child-list .numbering {
+    float: left;
 }
 
 
@@ -2232,13 +2446,17 @@ textarea {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(87 87 87) !important;
+    background-color: #10428B !important;
     z-index: 100;
     align-items: center;
     justify-content: center;
     transform: translateX(-100%);
     transition: all 0.5s ease;
     background-size: 100%;
+}
+
+.mobile-menu .header_phone_content a {
+    color: #fff;
 }
 
 .mobile-menu ul {

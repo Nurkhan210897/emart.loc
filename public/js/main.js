@@ -250,4 +250,19 @@ $(document).ready(function() {
         $(this).next().slideToggle();
         $(this).toggleClass("active")
     })
+
+    let count = $(".count")
+
+    function productCounter((btn, type) => {
+        if (type === "increment") {
+            console.log(count);
+        }
+        if (type === "decrement") {
+            console.log(count);
+        }
+    })
+
+    $("decrement-btn").click(() => {
+        console.log($(this));
+    })
 });
