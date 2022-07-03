@@ -174,6 +174,7 @@
                         <li><a href="#">Политика конфиденциальности</a></li>
                         <li><a href="#">Публичная оферта</a></li>
                         <li><a href="/rent-terms">Условия аренды</a></li>
+                        <li><a href="/delivery-terms">Условия доставки</a></li>
                     </ul>
                 </div>
                 <div class="col-xl-3 col-md-6">
