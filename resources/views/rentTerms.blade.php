@@ -10,18 +10,19 @@
                 </p>
             </div>
             <div class="questions_content">
+                @foreach($rentTerms as $rent)
                 <div class="question">
                     <div class="question_header">
-                        <p>Lorem ipsum dolor sit amet.</p>
+                        <p>{{$rent->title}}</p>
                         <button class="btn plus">
                             <img src="/storage/img/plus.svg" alt="">
                         </button>
                     </div>
                     <div class="question_description">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi beatae nesciunt vero fuga
-                            temporibus minus.</p>
+                        <p>{{$rent->description}}</p>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
