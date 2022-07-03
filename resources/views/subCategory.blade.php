@@ -40,7 +40,7 @@
                         @else
                         @foreach($subCategory->products as $product)
                         <div class="col-xl-3 col-md-6 col-12">
-                            <a href="#">
+                            <a href="/{{$category->slug}}/{{$subCategory->slug}}/{{$product->slug}}">
                                 <div class="product_card">
                                     <div class="product_card_img">
                                         <img src="{{Voyager::image($product->cover)}}" alt="">
