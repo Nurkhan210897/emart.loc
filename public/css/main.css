@@ -1540,6 +1540,33 @@ footer li a:hover {
     justify-content: space-between;
 }
 
+.count_wrp {
+    display: flex;
+    align-items: center;
+}
+
+.count_wrp .counter_btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.count_wrp .count {
+    margin: 0 15px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    color: #10428B;
+}
+
+.count_wrp .counter_btn {
+    padding: 0;
+}
+
+.count_wrp .counter_btn img {
+    max-width: 50px;
+    width: 100%;
+}
+
 .product_description {
     margin-top: 56px;
     margin-bottom: 52px

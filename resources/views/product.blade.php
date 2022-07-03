@@ -32,7 +32,7 @@
                     </div>
                 @endif
             </div>
-            <div class="col-xl-6">
+            <div class="col-xl-5">
                 <div class="detail">
                 </div>
                 <div class="title-product">
@@ -81,10 +81,14 @@
                                 value="{{ session()->has('basket.' . $product->id) ? session('basket.' . $product->id)['count'] : 1 }}"
                                 id="item-count" min="1" data-id='{{ $product->id }}'>
                         </div> --}}
-                        <div class="counter">
-                            <button class="btn counter_btn">-</button>
-                            <span class="count">1</span>
-                            <button class="btn counter_btn">+</button>
+                        <div class="count_wrp">
+                            <button class="btn counter_btn decrement-btn">
+                                <img src="/images/decrement.svg" alt="">
+                            </button>
+                            <span class="count" id="count">1</span>
+                            <button class="btn counter_btn increment-btn">
+                                <img src="/images/increment.svg" alt="">
+                            </button>
                         </div>
                     </div>
                 </div>
