@@ -46,7 +46,7 @@
                                         <img src="{{Voyager::image($product->cover)}}" alt="">
                                     </div>
                                     <div class="product_card_descr">
-                                        <p>{{$product->name}}</p>
+                                        <p class="product_card_name">{{$product->name}}</p>
                                         <p class="product_card_price">{{$product->price}} тг</p>
                                     </div>
                                     <button class="btn btn_yellow">В корзину</button>

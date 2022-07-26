@@ -1,13 +1,16 @@
 /* UTILS */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik:wght@200;400&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik:wght@200;100&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Rubik:wght@300;400;500&display=swap');
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
 body {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 }
 
@@ -66,12 +69,19 @@ input:focus {
     color: #000;
 }
 
+.title-block h2 {
+    color: #fff;
+}
+
+.title-block-black h2 {
+    color: #000;
+}
+
 .title-block h2,
 .title-block-black h2 {
     font-size: 45px;
     line-height: 53px;
     font-family: 'Rubik', sans-serif;
-    color: #fff;
     text-align: center;
     margin-bottom: 52px;
     font-weight: 400;
@@ -379,9 +389,10 @@ nav ul li a:hover {
 
 /* AREND-CATEGORY  */
 
-.main-category {
+
+/* .main-category {
     min-height: 50.7vh !important;
-}
+} */
 
 .main-category .main-category-content {
     padding: 120px 0;
@@ -413,8 +424,8 @@ nav ul li a:hover {
     justify-content: right;
     background-color: #fff;
     border-radius: 20px;
-    padding: 13px 24px;
-    font-size: 20px;
+    padding: 8px 24px;
+    font-size: 18px;
     line-height: 24px;
     position: relative;
     height: 100%;
@@ -444,16 +455,16 @@ nav ul li a:hover {
 }
 
 .main-category .main-category-content .category-card img {
-    max-width: 73px;
-    max-height: 83px;
-    width: 100%;
-    height: 100%;
+    width: 73px;
+    height: 83px;
+    object-fit: contain;
 }
 
 .main-category .main-category-content .main-cartegory-card a .card_text {
     position: absolute;
     left: 24px;
-    max-width: 60%;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
 }
 
 .main-category .main-category-content .category-card a .card_text {
@@ -564,16 +575,29 @@ nav ul li a:hover {
 }
 
 .product_card_img img {
-    width: 100%;
-    height: 100%;
-    max-width: 194px;
-    max-height: 185px;
+    width: 194px;
+    height: 185px;
+    object-fit: contain;
 }
 
 .product_card_descr {
     font-size: 19px;
     line-height: 23px;
     color: #000;
+    min-height: 130px;
+    max-height: 130px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product_card_name {
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .product_card_price {
@@ -582,7 +606,7 @@ nav ul li a:hover {
     line-height: 37px;
     text-align: center;
     color: #000000;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .product_card .btn_yellow {
@@ -927,7 +951,7 @@ footer.bg_layout p {
 }
 
 footer .title {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 24px;
     line-height: 29px;
     margin-bottom: 25px;
@@ -939,7 +963,6 @@ footer li {
 
 footer li a {
     color: #000;
-    font-weight: 300;
     font-size: 24px;
     line-height: 29px;
 }
@@ -1815,6 +1838,31 @@ td {
 }
 
 @media only screen and (max-width: 768px) {
+    .main-category .main-category-content .main-cartegory-card a {
+        padding: 13px 14px;
+    }
+    .main-category .main-category-content .main-cartegory-card a .card_text {
+        left: 0;
+        padding: 0 12px;
+        max-width: 100%;
+    }
+    .main-category .main-category-content p {
+        font-size: 18px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 1.2em;
+        white-space: nowrap;
+    }
+    .product_description-title {
+        font-size: 24px;
+    }
+    .main-category .main-category-content .category-card a {
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+    .products {
+        margin-top: 30px;
+    }
     .flex-elems {
         margin-top: 20px;
         flex-direction: column;
@@ -1874,7 +1922,7 @@ td {
         max-width: 155px !important;
     }
     .main-category .main-category-content {
-        padding: 30px;
+        padding: 30px 0;
     }
     .footer .title {
         font-size: 16px;
@@ -1888,7 +1936,7 @@ td {
         font-size: 13px;
     }
     .wp_btn img {
-        height: 44px;
+        width: 100%;
     }
     .add_cart {
         justify-content: center;
